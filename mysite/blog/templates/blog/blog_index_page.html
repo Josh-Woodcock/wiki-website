@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+
+<head><style>   body {
+padding-top: 20px; }div.spacermed {
+    margin-top: 30px; }
+                div.spacersml {
+    margin-top: 20px; }</style></head>
+
+    <h1>{{ page.title }}</h1>
+    <div class="spacermed"></div>
+
+{% for post in page.get_children %}
+        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        <div class="spacersml"></div>
+        {{ post.specific.body}}
+        <div class="spacermed"></div>
+        <hr>
+        <div class="spacermed"></div>
+
+{% endfor %}
+
+
+
+{% endblock %}
