@@ -2,33 +2,18 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-blogpage{% endblock %}
+{% block body_class %}template-eventpage{% endblock %}
 
 {% block content %}
-
 
 <head><style> body {
 padding-top: 20px; }
 </style></head>
 
-<h1>{{ page.title }}</h1>
+<!--<h1>{{ page.title }}</h1>-->
 
 <p class="meta"> {{ page.date }} </p>
 
-
-{% with categories=page.categories.all %}
-    {% if categories %}
-        <h5>Posted in:</h5>
-        <ul>
-            {% for category in categories %}
-                <li style="display: inline">
-                    {% image category.icon fill-32x32 style="vertical-align: middle" %}
-                    {{ category.name }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-{% endwith %}
 
 {% for item in page.gallery_images.all %}
         <div style="float: left; margin: 10px">
@@ -36,6 +21,22 @@ padding-top: 20px; }
             <p>{{ item.caption }}</p>
         </div>
     {% endfor %}
+
+ <div class="media">
+  <div class="media-left">
+       <!--<img src= ((page.image}} class="media-object" style="width:175px; height:80px;">-->
+
+  </div>
+  <div class="media-body">
+      <h1 class="media-heading"> {{ page.title }} </h1>
+    <h4> {{ page.organiser }} </h4>
+      <b> {{ page.date_time }} </b>
+      <p> {{ page.location}} </p>
+
+      <a class="btn btn-default btn-md"><i class="fa fa-calendar-plus-o fa-fw" aria-hidden="true"></i>
+Add to Calendar</a>
+              <a class="btn btn-default btn-md" href="#"><i class="fa fa-share-alt fa-fw"></i> Share </a>
+
 
     <article>
     {% for block in page.body %}
@@ -57,6 +58,6 @@ padding-top: 20px; }
 {% endif %}
 
 
-<p><a href="{{ page.get_parent.url }}">Return to News</a></p>
+<p><a href="{{ page.get_parent.url }}">Return to Events</a></p>
 
 {% endblock %}
