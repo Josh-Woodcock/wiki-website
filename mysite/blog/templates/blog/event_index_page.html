@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags%}
+
+{% block body_class %}template-eventindexpage{% endblock %}
+
+{% block content %}
+
+<head><style>   body {
+padding-top: 20px; }div.spacermed {
+    margin-top: 30px; }
+                div.spacersml {
+    margin-top: 20px; }</style></head>
+
+    <h1>{{ page.title }}</h1>
+    <div class="spacermed"></div>
+
+{% for post in page.get_children %}
+        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        <div class="spacersml"></div>
+
+<a class="btn btn-default btn-md"><i class="fa fa-calendar-plus-o fa-fw" aria-hidden="true"></i>
+            Add to Calendar</a>
+            <a class="btn btn-default btn-md" href="#"><i class="fa fa-share-alt fa-fw"></i> Share </a>
+
+        <div class="spacermed"></div>
+        <hr>
+        <div class="spacermed"></div>
+
+{% endfor %}
+
+
+
+{% endblock %}

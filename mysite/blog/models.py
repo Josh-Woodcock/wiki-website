@@ -15,7 +15,7 @@ from wagtail.wagtailsearch import index
 
 from wagtail.wagtailsnippets.models import register_snippet
 
-
+from wagtail.contrib.table_block.blocks import TableBlock
 
 # PAGE MODELS
 
@@ -102,6 +102,12 @@ class BlogPageGalleryImage(Orderable):
         FieldPanel('caption'),
     ]
 
+class EventIndexPage(Page):
+    intro = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('intro', classname="full")
+    ]
 
 class EventPage(Page):
     organiser =  models.CharField(max_length=255)
@@ -111,6 +117,7 @@ class EventPage(Page):
         ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
+        ('table', TableBlock()),
     ])
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
