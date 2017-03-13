@@ -1,0 +1,58 @@
+{% extends 'base.html' %}}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+
+
+<head><style> body {
+padding-top: 20px; }
+</style></head>
+
+<blockquote class="blockquote">
+  <p class="mb-0">
+Our research has had to push the computational limits of
+how global models are used to understand aerosol effects
+on climate. Making use of the N8 High Performance
+Computing Facility and working closely with colleagues
+at the Met Office turned an impossible task into a
+manageable one
+.</p>
+  <footer class="blockquote-footer" > Prof. Ken Carslaw, <cite title="Source Title"> University of Leeds. </cite></footer>
+</blockquote></p>
+
+
+<h1>{{ page.title }}</h1>
+
+<p class="meta"> {{ page.date }} </p>
+
+
+{% for item in page.gallery_images.all %}
+        <div style="float: left; margin: 10px">
+            {% image item.image fill-320x240 %}
+            <p>{{ item.caption }}</p>
+        </div>
+    {% endfor %}
+
+
+
+    <article>
+    {% for block in page.body %}
+            <section>
+                {% include_block block %}
+            </section>
+    {% endfor %}
+
+</article>
+
+<a class="btn btn-primary" href="#"><i class="fa fa-download fa-fw" aria-hidden="true"></i>
+            Download .PDF </a>
+          <div class="spacer"></div>
+
+
+
+<p><a href="{{ page.get_parent.url }}">Return to Case Studies</a></p>
+
+{% endblock %}

@@ -16,8 +16,14 @@ padding-top: 20px; }div.spacermed {
     <div class="spacermed"></div>
 
 {% for post in page.get_children %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        <h1><a href="{% pageurl post %}">{{ post.title }}</a></h1>
         <div class="spacersml"></div>
+
+<h4 > {{ post.specific.organiser }} </h4>
+<b>  (( post.specific.EventDate }} </b>
+<p> {{ post.specific.location }} </p>
+
+
 
 <a class="btn btn-default btn-md"><i class="fa fa-calendar-plus-o fa-fw" aria-hidden="true"></i>
             Add to Calendar</a>

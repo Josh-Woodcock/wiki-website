@@ -8,7 +8,7 @@ from taggit.models import TaggedItemBase
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import StreamField, RichTextField
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
@@ -110,8 +110,8 @@ class EventIndexPage(Page):
     ]
 
 class EventPage(Page):
-    organiser =  models.CharField(max_length=255)
-    date_time = models.DateTimeField('Event Date')
+    organiser = models.CharField(max_length=255)
+    date_time = models.DateTimeField('EventDate')
     location = models.CharField(max_length=255)
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
@@ -129,6 +129,7 @@ class EventPage(Page):
         FieldPanel('tags'),
     ], heading="Event Information"),
         StreamFieldPanel('body'),
+        InlinePanel('gallery_images', label="Gallery images"),
     ]
 
     search_fields = Page.search_fields + [
@@ -139,3 +140,14 @@ class EventPage(Page):
 
     ]
 
+class EventPageGalleryImage(Orderable):
+    page = ParentalKey(EventPage, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        ImageChooserPanel('image'),
+        FieldPanel('caption'),
+    ]

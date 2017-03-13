@@ -42,18 +42,16 @@ padding-top: 20px; }
 <p class="meta"> {{ page.date }} </p>
 
 
-{% for item in page.gallery_images.all %}
-        <div style="float: left; margin: 10px">
-            {% image item.image fill-320x240 %}
-            <p>{{ item.caption }}</p>
-        </div>
-    {% endfor %}
-
  <div class="media">
   <div class="media-left">
-       <!--<img src= ((page.image}} class="media-object" style="width:175px; height:80px;">-->
-
+{% for item in page.gallery_images.all %}
+        <div  style="margin: 10px">
+            {% image item.image fill-175x80 %}
+        </div>
+    {% endfor %}
   </div>
+
+
   <div class="media-body">
       <h1 class="media-heading"> {{ page.title }} </h1>
     <h4> {{ page.organiser }} </h4>
@@ -86,5 +84,7 @@ Add to Calendar</a>
 
 
 <p><a href="{{ page.get_parent.url }}">Return to Events</a></p>
+
+  </div></div>
 
 {% endblock %}
