@@ -46,8 +46,9 @@ class AnswerBlock(blocks.StructBlock):
 class FAQ(Page):
     intro = RichTextField(blank=True)
     body = StreamField([
-        ('question', QuestionBlock()),
-        ('answer', blocks.RichTextBlock()),
+        ('heading', blocks.CharBlock(classname="full title")),
+        ('paragraph', blocks.RichTextBlock()),
+        ('image', ImageChooserBlock()),
     ])
 
     search_fields = Page.search_fields + [
