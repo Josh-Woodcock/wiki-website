@@ -111,7 +111,7 @@ class EventIndexPage(Page):
 
 class EventPage(Page):
     organiser = models.CharField(max_length=255)
-    date_time = models.DateTimeField('EventDate')
+    date_time = models.DateTimeField()
     location = models.CharField(max_length=255)
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),

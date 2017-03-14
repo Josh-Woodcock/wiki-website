@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags%}
+
+{% block body_class %}template-eventindexpage{% endblock %}
+
+{% block content %}
+
+<head><style>   body {
+padding-top: 20px; }div.spacermed {
+    margin-top: 30px; }
+                div.spacersml {
+    margin-top: 20px; }</style></head>
+
+    <h1>{{ page.title }}</h1>
+    <div class="spacermed"></div>
+
+
+
+  <div class="container">
+
+{% for post in page.get_children %}
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <img src=" ">
+        <div class="caption">
+        <h3><a href="{% pageurl post %}">{{ post.title }}</a></h3>
+        <div class="spacersml"></div>
+
+      </div>
+    </div>
+  </div>
+      {% endfor %}
+
+      {% endblock %}

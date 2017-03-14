@@ -34,15 +34,13 @@ class CaseStudyIndex(Page):
 
 
 class CaseStudy(Page):
+    uni = models.CharField(max_length=255)
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
-        ('document',DocumentChooserBlock()),
+        ('document', DocumentChooserBlock()),
     ])
-
-
-
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
