@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'casestudies',
     'FAQ',
     'ourresearch',
+    'events',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',

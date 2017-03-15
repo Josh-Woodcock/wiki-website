@@ -29,8 +29,6 @@ class BlogIndexPage(Page):
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('BlogPage', related_name='tagged_items')
 
-class BlogPageTag(TaggedItemBase):
-    content_object = ParentalKey('EventPage', related_name='tagged_items')
 
 class BlogTagIndexPage(Page):
 
@@ -92,56 +90,6 @@ class BlogPage(Page):
 
 class BlogPageGalleryImage(Orderable):
     page = ParentalKey(BlogPage, related_name='gallery_images')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-    caption = models.CharField(blank=True, max_length=250)
-
-    panels = [
-        ImageChooserPanel('image'),
-        FieldPanel('caption'),
-    ]
-
-class EventIndexPage(Page):
-    intro = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('intro', classname="full")
-    ]
-
-class EventPage(Page):
-    organiser = models.CharField(max_length=255)
-    date_time = models.DateTimeField()
-    location = models.CharField(max_length=255)
-    body = StreamField([
-        ('heading', blocks.CharBlock(classname="full title")),
-        ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
-        ('table', TableBlock()),
-    ])
-    tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-
-    content_panels = Page.content_panels + [
-        MultiFieldPanel([
-        FieldPanel('organiser'),
-        FieldPanel('date_time'),
-        FieldPanel('location'),
-        FieldPanel('tags'),
-    ], heading="Event Information"),
-        StreamFieldPanel('body'),
-        InlinePanel('gallery_images', label="Gallery images"),
-    ]
-
-    search_fields = Page.search_fields + [
-        index.SearchField('body'),
-        index.SearchField('date_time'),
-        index.SearchField('location'),
-        index.SearchField('tags'),
-
-    ]
-
-class EventPageGalleryImage(Orderable):
-    page = ParentalKey(EventPage, related_name='gallery_images')
     image = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
     )

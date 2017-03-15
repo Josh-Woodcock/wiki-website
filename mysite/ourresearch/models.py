@@ -9,3 +9,6 @@ from wagtail.wagtailcore.models import Page
 
 class OurResearchIndex(Page):
     pass
+
+# class OurResearch(Page):
+
