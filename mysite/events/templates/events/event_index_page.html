@@ -16,12 +16,13 @@ padding-top: 20px; }div.spacermed {
     <div class="spacermed"></div>
 
 {% for post in page.get_children %}
+    {% with post=post.specific %}
         <h1><a href="{% pageurl post %}">{{ post.title }}</a></h1>
         <div class="spacersml"></div>
 
-<h4 > {{ post.specific.organiser }} </h4>
-<b>  (( post.specific.date_time }} </b>
-<p> {{ post.specific.location }} </p>
+<h4 > {{ post.organiser }} </h4>
+<b>  {{ post.date_time }} </b>
+<p> {{ post.location }} </p>
 
 
 
@@ -33,6 +34,7 @@ padding-top: 20px; }div.spacermed {
         <hr>
         <div class="spacermed"></div>
 
+    {% endwith %}
 {% endfor %}
 
 
