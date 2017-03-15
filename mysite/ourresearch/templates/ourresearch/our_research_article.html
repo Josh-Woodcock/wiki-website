@@ -1,0 +1,46 @@
+{% extends 'base.html' %}}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-ourresearcharticlepage{% endblock %}
+
+{% block content %}
+
+<head>
+<style> body {
+padding-top: 20px; }div.spacermed {
+    margin-top: 30px; }
+
+</style></head>
+
+
+ <div class="media">
+  <div class="media-left">
+{% for item in page.gallery_images.all %}
+        <div  style="margin: 10px">
+            {% image item.image %}
+        </div>
+    {% endfor %}
+  </div>
+
+  <div class="media-body">
+      <h1 class="media-heading"> {{ page.title }} </h1>
+    <h4> {{ page.researcher }} , {{ page.university}} </h4>
+
+    <div class="spacermed"></div>
+
+    <article>
+    {% for block in page.body %}
+            <section>
+                {% include_block block %}
+            </section>
+    {% endfor %}
+</article>
+
+
+
+<p><a href="{{ page.get_parent.url }}">Return to Chemistry</a></p>
+
+  </div></div>
+
+{% endblock %}
