@@ -10,18 +10,19 @@
 <style> body {
 padding-top: 20px; }div.spacermed {
     margin-top: 30px; }
-
+    }
 </style></head>
 
 
  <div class="media">
-  <div class="media-left">
+  <div class="media-left" style="padding-right: 30px;">
 {% for item in page.gallery_images.all %}
         <div  style="margin: 10px">
-            {% image item.image %}
+            {% image item.image max-1000x500 %}
         </div>
     {% endfor %}
   </div>
+
 
   <div class="media-body">
       <h1 class="media-heading"> {{ page.title }} </h1>

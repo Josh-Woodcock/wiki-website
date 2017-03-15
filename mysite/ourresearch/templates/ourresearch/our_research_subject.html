@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-ourresearchsubjectpage{% endblock %}
+
+{% block content %}
+
+
+<head>
+<style> body {
+padding-top: 20px; }div.spacermed {
+    margin-top: 30px; }
+    }div.spacer {
+    margin-top: 500px; }
+    }
+</style></head>
+
+
+<div class="container">
+     <div class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron text-center">
+  <h2> {{page.title}} </h2>
+          <div class="spacersml"></div>
+      </div>
+    </div>
+</div>
+
+    {% for post in page.get_children %}
+            {% with post=post.specific %}
+
+
+         <div class="media">
+          <div class="media-left" style="padding-right: 40px;">
+         {% with post.main_image as main_image %}
+            {% if main_image %}{% image main_image max-1000x500 %}{% endif %}
+        {% endwith %}
+          </div>
+
+
+          <div class="media-body">
+              <h1 class="media-heading"> {{ post.title }} </h1>
+            <h4> {{ post.researcher }} , {{ post.university}} </h4>
+
+            <div class="spacermed"></div>
+
+            <article>
+            {% for block in post.body %}
+                    <section>
+                        {% include_block block %}
+                    </section>
+            {% endfor %}
+        </article>
+
+        <div class="spacermed"></div>
+        <hr>
+        <div class="spacermed"></div>
+
+
+          </div></div>
+        {% endwith %}
+    {% endfor %}
+
+{% endblock %}

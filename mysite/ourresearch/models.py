@@ -41,14 +41,22 @@ class OurResearchArticle(Page):
         ('image', ImageChooserBlock()),
     ])
 
+    def main_image(self):
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image
+        else:
+            return None
+
     content_panels = Page.content_panels + [
         MultiFieldPanel([
         FieldPanel('researcher'),
         FieldPanel('university'),
     ], heading="Research Information"),
+        InlinePanel('gallery_images', label="Image Left"),
         StreamFieldPanel('body'),
-        InlinePanel('gallery_images', label="Gallery images"),
     ]
+
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
