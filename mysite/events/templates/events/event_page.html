@@ -38,10 +38,6 @@ padding-top: 20px; }
     <!--</span>-->
 
 
-
-<p class="meta"> {{ page.date }} </p>
-
-
  <div class="media">
   <div class="media-left">
 {% for item in page.gallery_images.all %}
@@ -55,7 +51,7 @@ padding-top: 20px; }
   <div class="media-body">
       <h1 class="media-heading"> {{ page.title }} </h1>
     <h4> {{ page.organiser }} </h4>
-      <b> {{ page.start_date }} {{ page.end_date }} ,\{{ page.start_time }} {{ page.end_time }}</b>
+      <b> {{ page.date }}, {{ page.start_time }} - {{ page.end_time }} </b>
       <p> {{ page.location}} </p>
 
       <a class="btn btn-default btn-md"><i class="fa fa-calendar-plus-o fa-fw" aria-hidden="true"></i>
@@ -64,11 +60,11 @@ Add to Calendar</a>
 
 
     <article>
-    { % for block in page.body % }
+    {% for block in page.body %}
             <section>
-                { % include_block block % }
+                {% include_block block %}
             </section>
-     {% endfor % }
+     {% endfor %}
 
 </article>
 
