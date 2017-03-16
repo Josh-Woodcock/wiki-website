@@ -10,39 +10,15 @@
 <style> body {
 padding-top: 20px; }
 
-</style></head>
-
-
-<!--<link href="http://addtocalendar.com/atc/1.5/atc-base.css" rel="stylesheet" type="text/css">-->
-    <!--&lt;!&ndash; 2. Include script &ndash;&gt;-->
-    <!--<script type="text/javascript">(function () {-->
-            <!--if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;-->
-            <!--if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;-->
-                <!--var d = document, s = d.createElement('script'), g = 'getElementsByTagName';-->
-                <!--s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;-->
-                <!--s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';-->
-                <!--var h = d[g]('body')[0];h.appendChild(s); }})();-->
-    <!--</script>-->
-
-       <!--<span class="addtocalendar btn btn-default btn-md"><i class="fa fa-calendar-plus-o fa-fw" aria-hidden="true"></i>-->
-        <!--<var class="atc_event">-->
-            <!--<var class="atc_date_start">2017-05-04 12:00:00</var>-->
-            <!--<var class="atc_date_end">2017-05-04 18:00:00</var>-->
-            <!--<var class="atc_timezone">Europe/London</var>-->
-            <!--<var class="atc_title">Star Wars Day Party</var>-->
-            <!--<var class="atc_description">May the force be with you</var>-->
-            <!--<var class="atc_location">Tatooine</var>-->
-            <!--<var class="atc_organizer">Luke Skywalker</var>-->
-            <!--<var class="atc_organizer_email">luke@starwars.com</var>-->
-        <!--</var>-->
-    <!--</span>-->
-
+</style>
+    <link rel="stylesheet" href="../../../mysite/static/css/mdb.css">
+</head>
 
  <div class="media">
-  <div class="media-left">
+  <div class="media-left" style="padding-right: 25px;">
 {% for item in page.gallery_images.all %}
         <div  style="margin: 10px">
-            {% image item.image fill-175x80 %}
+            {% image item.image max-250x250 %}
         </div>
     {% endfor %}
   </div>
@@ -53,6 +29,37 @@ padding-top: 20px; }
     <h4> {{ page.organiser }} </h4>
       <b> {{ page.date }}, {{ page.start_time }} - {{ page.end_time }} </b>
       <p> {{ page.location}} </p>
+
+
+
+<body>
+
+<head>
+    <!-- 1. Include style -->
+    <link href="http://addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
+</head>
+    <!-- 2. Include script -->
+    <script type="text/javascript">(function () {
+            if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
+            if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;
+                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;
+                s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
+                var h = d[g]('body')[0];h.appendChild(s); }})();
+    </script>
+
+    <!-- 3. Place event data -->
+    <span class="addtocalendar atc-style-blue">
+        <var class="atc_event">
+            <var class="atc_date_start">{{ page.date }} {{page.start_time}}</var>
+            <var class="atc_date_end">{{ page.date }} {{page.end_time}}</var>
+            <var class="atc_timezone">Europe/London</var>
+            <var class="atc_title">{{ page.title }}</var>
+            <var class="atc_location"> {{ page.location }} </var>
+            <var class="atc_organizer"> {{ page.organiser}}</var>
+        </var>
+    </span>
+</body>
 
       <a class="btn btn-default btn-md"><i class="fa fa-calendar-plus-o fa-fw" aria-hidden="true"></i>
 Add to Calendar</a>
@@ -81,6 +88,6 @@ Add to Calendar</a>
 
 <p><a href="{{ page.get_parent.url }}">Return to Events</a></p>
 
-  </div></div>
+  </a></div>
 
 {% endblock %}

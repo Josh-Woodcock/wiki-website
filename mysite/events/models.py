@@ -47,6 +47,13 @@ class EventPage(Page):
     ])
     tags = ClusterTaggableManager(through=EventPageTag, blank=True)
 
+    def main_image(self):
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image
+        else:
+            return None
+
     content_panels = Page.content_panels + [
         MultiFieldPanel([
         FieldPanel('organiser'),
