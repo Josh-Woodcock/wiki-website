@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}}
 
-</body>
-</html>
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+      position: relative;
+  }
+  ul.nav-pills {
+      top: 20px;
+      position: fixed;
+  }
+  @media screen and (max-width: 810px) {
+    #section1, #section2, #section3, #section41, #section42  {
+        margin-left: 150px;
+    }
+  }
+  </style>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+
+<div class="container">
+  <div class="row">
+    <nav class="col-sm-3" id="myScrollspy">
+      <ul class="nav nav-pills nav-stacked">
+
+          {{% for section_heading in section_headings %}}
+                {{ n = 0 }}
+          <li class="active"><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
+
+          {{% endfor %}}
+
+          {{% for %}}
+                {{ n = 1 }}
+          <li><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
+
+          {{% endfor %}}
+
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+<div class="col-sm-9">
+    {{% for %}}
+        {{ n = 0}}
+      <div id="section{{ n + 1 }}">
+        <h1>{{ page.sub_heading}}</h1>
+            {{ page.text }}
+      </div>
+    {{% endfor %}}

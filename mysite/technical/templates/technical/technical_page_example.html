@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Technical Page Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,19 +12,26 @@
        div.spacer {
     margin-top: 30px; }
 
+       div.spacerlrg {
+    margin-top: 60px; }
+
+
   body {
       position: relative;
+      top: 20px;
   }
 
   ul.nav-pills {
-      top: 20px;
+      top: 16px;
       position: fixed;
+
   }
   div.col-sm-9 div {
+      left: 50px;
   }
 
   @media screen and (max-width: 810px) {
-    #section1, #section2, #section3, #section41, #section42  {
+    #section1, #section2, #section3, #section4, #section5, #section6, #section7, #section8 {
         margin-left: 150px;
     }
   }
@@ -35,9 +42,10 @@
 
 <div class="container">
   <div class="row">
-
-      <nav class="col-sm-3" id="myScrollspy">
+      <nav class="col-sm-4" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
+           <h3> File Management </h3>
+          <div class="spacer"></div>
       <h5> Copying to Facility </h5>
         <li class="active"><a href="#section1">Push</a></li>
         <li><a href="#section2">Graphical Clients</a></li>
@@ -49,21 +57,20 @@
           <li><a href="#section6">Introduction</a></li>
         <li><a href="#section7">Push</a></li>
         <li><a href="#section8">Pull</a></li>
-          </ul>
-        </li>
       </ul>
-    </nav>
+      </nav>
 
 
 
-    <div class="col-sm-9">
+
+    <div class="col-sm-8">
 
         <h1>File Management</h1>
         <p>  An overview of the file system is presented here.
     The following tabs provide detailed information about copying files to and from the N8HPC facility.
       Further related information can also be found in the <a href="https://n8hpc.org.uk/running-jobs">
                 Running Jobs</a> page</p>
-         <div class="spacer"></div>
+         <div class="spacerlrg"></div>
 
 
         <h2>Copying to Facility</h2>
@@ -126,11 +133,11 @@
     and so take care of security in relation to it.
   </p>
 
-         <div class="spacer"></div>
+         <div class="spacerlrg"></div>
 
-
-        </p>
       </div>
+
+
       <div id="section2">
         <h3>Graphical Clients</h3>
         <p> There are a number of graphical clients which allow connection over a secure connection.
@@ -142,6 +149,10 @@
          <div class="spacer"></div>
          <div class="spacer"></div>
       </div>
+
+                 <div class="spacerlrg"></div>
+
+
       <div id="section3">
         <h3>Pull</h3>
          <p> Pull is when you are logged onto the N8 system and want to pull data onto it. </p>
@@ -159,6 +170,9 @@
 
          <div class="spacer"></div>
       </div>
+
+                 <div class="spacerlrg"></div>
+
       <div id="section4">
         <h3>Annonymous Connections</h3>
         <p> Many public datasets can be retrieved using anonymous authentication. </p>
@@ -181,6 +195,9 @@
 
          <div class="spacer"></div>
       </div>
+
+                 <div class="spacerlrg"></div>
+
         <div id="section5">
         <h3>Caveats + Cautions</h3>
         <p> When potentially sensitive data or connections are used then secure methods are preferable
@@ -191,6 +208,10 @@
 <p> Ensure you select an appropriate method for your use case.</p>
       </div>
 
+                         <div class="spacerlrg"></div>
+
+
+        <h2>Copying to Facility</h2>
 
         <div id="section6">
         <h3>Introduction</h3>
@@ -198,6 +219,9 @@
           You should also check out the caveats and cautions section on the above page.</p>
 <div class="spacer"></div>
       </div>
+
+                 <div class="spacerlrg"></div>
+
         <div id="section7">
         <h3>Push</h3>
         <p> scp, sftp, rsync can be used, provided the firewall rules at your home institution's resource allow you to do this
@@ -208,9 +232,11 @@
         <p> to your home directory on </p>
 
          <button type="button" class="btn btn-default">myinstitutionalhpc</button>
-
-        <div class="spacer"></div>
+            <div class="spacer"></div>
       </div>
+
+                 <div class="spacerlrg"></div>
+
         <div id="section8">
         <h3>Pull</h3>
         <p> This will generally be easy and the N8 system allows access from your institution by default. </p>
@@ -225,6 +251,6 @@
     </div>
   </div>
 </div>
-
+</div>
 </body>
 </html>
