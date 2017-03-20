@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+       div.spacer {
+    margin-top: 30px; }
+
+  body {
+      position: relative;
+  }
+
+  ul.nav-pills {
+      top: 20px;
+      position: fixed;
+  }
+  div.col-sm-9 div {
+  }
+
+  @media screen and (max-width: 810px) {
+    #section1, #section2, #section3, #section41, #section42  {
+        margin-left: 150px;
+    }
+  }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+
+<div class="container">
+  <div class="row">
+
+      <nav class="col-sm-3" id="myScrollspy">
+      <ul class="nav nav-pills nav-stacked">
+      <h5> Copying to Facility </h5>
+        <li class="active"><a href="#section1">Push</a></li>
+        <li><a href="#section2">Graphical Clients</a></li>
+        <li><a href="#section3">Pull</a></li>
+        <li><a href="#section4">Annonymous Connections</a></li>
+        <li><a href="#section5">Caveats + Cautions</a></li>
+           <div class="spacer"></div>
+          <h5> Copying From Facility </h5>
+          <li><a href="#section6">Introduction</a></li>
+        <li><a href="#section7">Push</a></li>
+        <li><a href="#section8">Pull</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+
+
+    <div class="col-sm-9">
+
+        <h1>File Management</h1>
+        <p>  An overview of the file system is presented here.
+    The following tabs provide detailed information about copying files to and from the N8HPC facility.
+      Further related information can also be found in the <a href="https://n8hpc.org.uk/running-jobs">
+                Running Jobs</a> page</p>
+         <div class="spacer"></div>
+
+
+        <h2>Copying to Facility</h2>
+
+
+      <div id="section1">
+        <h3>Push</h3>
+        <p> Pushing data is most easily achieved using scp/sftp/rsync command line clients from any location where ssh access is available
+          (which should include any location in your home institution or any of the other N8 institutions).
+        You may find it convenient to set up passwordless login for ssh to assist with this to avoid the need for password prompts,
+          but be mindful of the security implications of protecting your private key and password strength before doing so.
+  Note that scp, sftp, and rsync are available on Linux, Mac, and Windows (in some cases these are third party downloads), although in some cases the command names and options may vary slightly.</p>
+
+ <div class="spacer"></div>
+
+  <h4> scp </h4>
+  <a class="btn btn-default" href="https://en.wikipedia.org/wiki/Secure_copy" role="button" >Wikipedia entry</a>
+  <p> </p>
+  <p> To copy a directory from a local source to your home directory, e.g:
+        <pre> scp -r mylocaldirectory myusername@polaris.leeds.ac.uk: </pre>
+  <p> This will create a directory in your home directory called mylocaldiectory  </p>
+
+        <div class="spacer"></div>
+
+  <h4> sftp </h4>
+        <a class="btn btn-default" href="https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol" role="button">Wikipedia entry</a>
+        <p> </p>
+        <pre> sftp myusername@polaris.leeds.ac.uk </pre>
+  <p> This will then bring up an interactive prompt as typical for other command-line ftp clients </p>
+
+         <div class="spacer"></div>
+
+  <h4> rsync </h4>
+                <a class="btn btn-default" href="https://en.wikipedia.org/wiki/Rsync" role="button">Wikipedia entry</a>
+        <p> </p>
+  <p> Rsync allows you copy only those files that have changed from a local disk to the N8 system.
+    An example command to copy any changed files from a local directory to the N8 might be:</p>
+
+  <pre> rsync -vuarP mylocaldirectory myusername@polaris.leeds.ac.uk: </pre>
+
+    <p> This will create a directory in your home directory called mylocaldirectory if it doesn't already exist,
+    or synchronise the contents if it already does. There are many options for rsync, and there are some
+    idiosyncracies with regard to what the command means when a directory name has a trailing slash,
+    so please read your local installation's documentation before proceeding. </p>
+
+         <div class="spacer"></div>
+
+<h4> sshfs </h4>
+  <p>On Linux clients it is possible to use the ssh user space filesystem
+    (aka<a class="btn btn-default btn-sm" href="https://en.wikipedia.org/wiki/SSHFS" role="button">sshfs </a>)
+    , if installed, to mount your home file system onto your local machine.
+
+  <pre> sshfs myusername@polaris.leeds.ac.uk:/myhomedirectory /mountpoint </pre>
+
+    <p> Where myhomedirectory is the location of your home directory on the N8 system,
+    and /mountpoint is where you want to see it on your local machine.
+    You can then use your standard GUI tools or command line tools,
+    as if the directory was mounted locally to transfer data to (or from) this.
+    However, be aware that the data will be mounted for a long period of time,
+    and so take care of security in relation to it.
+  </p>
+
+         <div class="spacer"></div>
+
+
+        </p>
+      </div>
+      <div id="section2">
+        <h3>Graphical Clients</h3>
+        <p> There are a number of graphical clients which allow connection over a secure connection.
+    An example on Windows is  <a class="btn btn-default btn-sm" href="https://en.wikipedia.org/wiki/WinSCP" role="button"> WinSCP </a>) In addition tools on Linux and Mac allow the mounting
+    of remote directories in a way that is analogous to sshfs above. The details of this vary
+    for versions of Linux and the desktop environment, so please check your distributions information.
+    In addition there are a number of tools that allow graphical control of rsync, e.g. grsync and
+    unison which may be useful. </p>
+         <div class="spacer"></div>
+         <div class="spacer"></div>
+      </div>
+      <div id="section3">
+        <h3>Pull</h3>
+         <p> Pull is when you are logged onto the N8 system and want to pull data onto it. </p>
+
+         <div class="spacer"></div>
+
+  <h4> sftp, scp, rsync </h4>
+  <p> Many of the tools from the push section above may be used but an example for scp would be:</p>
+  <pre> scp -r myinstitutionalusername@myinstitutionhpc.institution.ac.uk:somedir </pre>
+    <p> Which would copy data from an institution to a directory called somedir on the N8.
+    An issue with this approach is that your local institution or the owner of the above resource myinstitutionhpc
+    may not have its firewall enabled to allow traffic from the N8 system and so this will fail. In this instance,
+    please use the push method. This may also be the case if you wish to pull data from another location to the N8 system.
+  </p>
+
+         <div class="spacer"></div>
+      </div>
+      <div id="section4">
+        <h3>Annonymous Connections</h3>
+        <p> Many public datasets can be retrieved using anonymous authentication. </p>
+
+                 <div class="spacer"></div>
+
+  <h4> ftp </h4>
+  <p> The classic <a class="btn btn-default btn-sm" href="https://en.wikipedia.org/wiki/File_Transfer_Protocol" role="button"> ftp </a>
+    command line tool can be used from the N8 system to pull data onto it </p>
+
+         <div class="spacer"></div>
+
+
+  <h4> wget </h4>
+  <p> A tool which can cope with various protocols, including data accessible via http, is wget.
+    For example if you know there is a useful dataset that is available at http://www.datasetsrus.com/usefuldataset.zip
+    then you can grab this via:
+  <pre> wget http://www.datasetsrus.com/usefuldataset.zip </pre>
+   <p> Which will create the file usefuldataset.zip in the directory where the command is run.</p>
+
+         <div class="spacer"></div>
+      </div>
+        <div id="section5">
+        <h3>Caveats + Cautions</h3>
+        <p> When potentially sensitive data or connections are used then secure methods are preferable
+    (e.g. scp, sftp, or rsync over ssh). It is not advisable to run an insecure ftp site at your home
+    institution to get round this, for example. </p>
+<p> When data is not secure, e.g. public data sets you are pulling onto the system,
+  then using the non-secure methods may allow you to get better throughput as there is no overhead in encryption.</p>
+<p> Ensure you select an appropriate method for your use case.</p>
+      </div>
+
+
+        <div id="section6">
+        <h3>Introduction</h3>
+        <p>In many instances this is simply a case of reversing the sense of the commands used in copying data to the facility.
+          You should also check out the caveats and cautions section on the above page.</p>
+<div class="spacer"></div>
+      </div>
+        <div id="section7">
+        <h3>Push</h3>
+        <p> scp, sftp, rsync can be used, provided the firewall rules at your home institution's resource allow you to do this
+            e.g., when logged onto the N8 system </p>
+        <pre> scp somefile.txt myinstutitionalusername@myinstututionalhpc.myinstution.ac.uk: </pre>
+        <p> would copy </p>
+        <button type="button" class="btn btn-default">somefile.txt</button> <p> </p>
+        <p> to your home directory on </p>
+
+         <button type="button" class="btn btn-default">myinstitutionalhpc</button>
+
+        <div class="spacer"></div>
+      </div>
+        <div id="section8">
+        <h3>Pull</h3>
+        <p> This will generally be easy and the N8 system allows access from your institution by default. </p>
+        <pre> scp myusername@polaris.leeds.ac.uk:somefile.txt . </pre>
+        <p> Will copy the file  </p> <button type="button" class="btn btn-default">somefile.txt</button> <p> </p> <p> in your home directory on the N8 to the current
+        directory on your local system. </p>
+        <p> In addition the sshfs or other mounting methods will work bidirectionally, and allow you to pull data back. </p>
+
+       <div class="row spacer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
