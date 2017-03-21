@@ -6,7 +6,25 @@
 
 {% block content %}
 
-<head> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> </head>
+<head> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+    body {
+padding-top: 20px; }
+
+    div.spacermed {
+    margin-top: 20px; }
+    }
+
+    div.spacerlrg {
+    margin-top: 35px; }
+    }
+
+    div.thumbnail {
+        float:none; margin:0 auto;
+}
+
+</style></head>
 
 
 
@@ -23,107 +41,97 @@
     </div>
 </div>
 
-    <div class="container">
-  <a href="{{ page.get_parent.url }}"> <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+     <div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-4"><div class="thumbnail">
         <div class="spacermed"> </div>
-      <i class="fa fa-flask fa-6" aria-hidden="true"></i>
+      <i class="fa fa-flask fa-5x" aria-hidden="true"></i>
+            <div class="spacermed"></div>
       <div class="caption">
         <h3> Chemistry </h3>
-        <!--<p>University of Leeds</p>-->
       </div>
-    </div>
-      </a>
-  </div>
+    </div></div>
 
 
-<a href="https://n8hpc.org.uk/category/maths/">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+
+     <div class="col-md-4"><div class="thumbnail">
         <div class="spacermed"> </div>
-<i class="fa fa-calculator fa-6" aria-hidden="true"></i>
+<i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+         <div class="spacermed"></div>
       <div class="caption">
         <h3>Maths</h3>
-        <!--<p>University of Manchester and Johnson & Johnson</p>-->
       </div>
     </div>
-      </a>
-  </div>
+     </div>
 
 
 
-<a href="https://n8hpc.org.uk/category/Engineering/">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+        <div class="col-md-4"><div class="thumbnail">
         <div class="spacermed"> </div>
-<i class="fa fa-cogs fa-6" aria-hidden="true"></i>
+<i class="fa fa-cogs fa-5x" aria-hidden="true"></i>
+        <div class="spacermed"></div>
       <div class="caption">
         <h3>Engineering</h3>
-        <!--<p>University of Sheffield</p>-->
       </div>
+    </div></div>
     </div>
-      </a>
-  </div>
 
 
-<a href="https://n8hpc.org.uk/category/life-sciences/">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+         <div class="row">
+     <div class="col-md-4"><div class="thumbnail">
         <div class="spacermed"> </div>
-<i class="fa fa-heart-o" aria-hidden="true"></i>
+<i class="fa fa-heart-o fa-5x" aria-hidden="true"></i>
+     <div class="spacermed"></div>
       <div class="caption">
         <h3>Life Sciences</h3>
-        <!--<p>The University of Manchester and the BBC</p>-->
-          <!--<div class="spacermed"></div>-->
       </div>
-    </div>
-      </a>
-  </div>
+    </div></div>
 
 
-<a href="https://n8hpc.org.uk/category/earth-sciences/">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+
+     <div class="col-md-4"><div class="thumbnail">
         <div class="spacermed"> </div>
-<i class="fa fa-globe" aria-hidden="true"></i>
+<i class="fa fa-globe fa-5x" aria-hidden="true"></i>
+         <div class="spacermed"></div>
       <div class="caption">
         <h3>Earth Science</h3>
-        <!--<p>University of Liverpool</p>-->
-          <!--<div class="spacermed"></div>-->
       </div>
-    </div>
-      </a>
-  </div>
+    </div></div>
 
 
-<a href="https://n8hpc.org.uk/category/physical-sciences/">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+
+     <div class="col-md-4"><div class="thumbnail">
         <div class="spacermed"> </div>
-          <i class="fa fa-grav" aria-hidden="true"></i>
+          <i class="fa fa-grav fa-5x" aria-hidden="true"></i>
+             <div class="spacermed"></div>
       <div class="caption">
         <h3> Physics </h3>
-        <!--<p> Newcastle University and De Beers </p>-->
       </div>
+    </div></div>
+
+
+
     </div>
-      </a>
-  </div>
-
-
-<a href="https://n8hpc.org.uk/category/electronics-and-computing/">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+    <div class="row">
+     <div class="col-md-4"><div class="thumbnail">
         <div class="spacermed"> </div>
-<i class="fa fa-desktop" aria-hidden="true"></i>
+<i class="fa fa-desktop fa-5x" aria-hidden="true"></i>
+         <div class="spacermed"></div>
       <div class="caption">
         <h3>Electronics and Computing</h3>
-        <!--<p> N8 HPC </p>-->
       </div>
     </div>
-      </a>
-  </div>
-</div>
-</div>
+     </div>
+
+
+
+        <div class="col-md-4"></div>
+     <div class="col-md-4"></div>
     </div>
+  </div>
+
+  </div>
+
 
 {% endblock %}
