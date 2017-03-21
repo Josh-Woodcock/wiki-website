@@ -63,8 +63,8 @@ class EventPage(Page):
         FieldPanel('location'),
         FieldPanel('tags'),
     ], heading="Event Information"),
+        InlinePanel('gallery_images', label="Event Image"),
         StreamFieldPanel('body'),
-        InlinePanel('gallery_images', label="Gallery images"),
     ]
 
     search_fields = Page.search_fields + [
