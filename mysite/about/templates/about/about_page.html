@@ -1,0 +1,77 @@
+{% extends 'base.html' %}}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+
+{% extends 'base.html' %}}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-technicalpage{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+      position: relative;
+  }
+  ul.nav-pills {
+      top: 20px;
+      position: fixed;
+  }
+  @media screen and (max-width: 810px) {
+    #section1, #section2, #section3, #section41, #section42  {
+        margin-left: 150px;
+    }
+  }
+  </style>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+
+<div class="container">
+  <div class="row">
+    <nav class="col-sm-3" id="myScrollspy">
+      <ul class="nav nav-pills nav-stacked">
+
+          {{% for heading in page.body %}}
+                {{ n = 0 }}
+          <li class="active"><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
+
+          {{% endfor %}}
+
+          {{% for %}}
+                {{ n = 1 }}
+          <li><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
+
+          {{% endfor %}}
+
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+<div class="col-sm-9">
+    {{% for %}}
+        {{ n = 0}}
+      <div id="section{{ n + 1 }}">
+        <h1>{{ page.sub_heading}}</h1>
+            {{ page.text }}
+      </div>
+    {{% endfor %}}
+
+
+    <div>
+    {% for block in page.body %}
+        {{ n = 0}}
+        {% if block.block_type == 'heading' %}
+        <div id="section{{n + 1}}"> {{ block.value }} </div>
+        {% else %}
+            <section class="block-{{ block.block_type }}">
+                {% include_block block %}
+            </section>
+        {% endif %}
+    {% endfor %}
+</article>
