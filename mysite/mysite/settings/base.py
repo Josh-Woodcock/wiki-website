@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'FAQ',
     'ourresearch',
     'events',
+    'technical',
+    'about',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -57,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'wagtail.contrib.table_block',
+    'wagtail.contrib.wagtailsitemaps',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +115,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT'
 
 USE_I18N = True
 
@@ -143,6 +146,7 @@ MEDIA_URL = '/media/'
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "mysite"
+WAGTAIL_USAGE_COUNT_ENABLED = True
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
