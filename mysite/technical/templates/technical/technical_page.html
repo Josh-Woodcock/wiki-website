@@ -2,7 +2,7 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-blogpage{% endblock %}
+{% block body_class %}template-technicalpage{% endblock %}
 
 {% block content %}
 
@@ -28,15 +28,15 @@
     <nav class="col-sm-3" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
 
-          {{% for section_heading in section_headings %}}
-                {{ n = 0 }}
+          {% for section_heading in page.body %}
+                { n = 0 }
           <li class="active"><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
 
           {{% endfor %}}
 
           {{% for %}}
                 {{ n = 1 }}
-          <li><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
+          <li><a href="#section{n + 1}">{page.section_heading}</a></li>
 
           {{% endfor %}}
 
