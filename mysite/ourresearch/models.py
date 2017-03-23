@@ -1,10 +1,11 @@
+
+# Create your models here.
 from __future__ import absolute_import, unicode_literals
 
 from django.db import models
 
-from modelcluster.fields import ParentalKey, ParentalManyToManyField
-from modelcluster.tags import ClusterTaggableManager
-from taggit.models import TaggedItemBase
+from modelcluster.fields import ParentalKey
+
 
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import StreamField, RichTextField
@@ -16,11 +17,35 @@ from wagtail.wagtailsearch import index
 
 from wagtail.contrib.table_block.blocks import TableBlock
 
-# Create your models here.
 
+class FontAwesomeSizeBlock(blocks.ChoiceBlock):
+    choices = [
+        ('fa-lg'),
+        ('fa-2x'),
+        ('fa-3x'),
+        ('fa-4x'),
+        ('fa-5x'),
+    ]
+
+    class Meta:
+        icon = 'plus'
+
+class OurResearchIndexThumb(blocks.StructBlock):
+    fa_icon = blocks.CharBlock()
+    # fa_icon_size = FontAwesomeSizeBlock()
+    caption = blocks.CharBlock()
+
+    class Meta:
+        icon = 'image'
+        template = 'blocks/our_research_index_thumb.html'
 
 class OurResearchIndex(Page):
-    pass
+    intro_index = RichTextField(blank=True)
+    subject = StreamField([('subject', OurResearchIndexThumb())])
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('subject'),
+        ]
 
 
 class OurResearchSubject(Page):
@@ -76,3 +101,12 @@ class OurResearchGalleryImage(Orderable):
         ImageChooserPanel('image'),
         FieldPanel('caption'),
     ]
+
+
+class OurResearchIndexThumb(blocks.StructBlock):
+    ('subject_image', ImageChooserBlock()),
+    ('caption', blocks.CharBlock(required=True))
+
+    class Meta:
+        icon = 'image'
+        template = 'blocks/our_research_index_thumb.html'
