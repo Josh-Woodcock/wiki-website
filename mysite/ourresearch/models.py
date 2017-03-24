@@ -15,8 +15,6 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
 
-from wagtail.contrib.table_block.blocks import TableBlock
-
 
 class FontAwesomeSizeBlock(blocks.ChoiceBlock):
     choices = [
@@ -30,6 +28,7 @@ class FontAwesomeSizeBlock(blocks.ChoiceBlock):
     class Meta:
         icon = 'plus'
 
+
 class OurResearchIndexThumb(blocks.StructBlock):
     fa_icon = blocks.CharBlock()
     # fa_icon_size = FontAwesomeSizeBlock()
@@ -39,11 +38,13 @@ class OurResearchIndexThumb(blocks.StructBlock):
         icon = 'image'
         template = 'blocks/our_research_index_thumb.html'
 
+
 class OurResearchIndex(Page):
     intro_index = RichTextField(blank=True)
     subject = StreamField([('subject', OurResearchIndexThumb())])
 
     content_panels = Page.content_panels + [
+        FieldPanel('intro_index'),
         StreamFieldPanel('subject'),
         ]
 
@@ -103,10 +104,10 @@ class OurResearchGalleryImage(Orderable):
     ]
 
 
-class OurResearchIndexThumb(blocks.StructBlock):
-    ('subject_image', ImageChooserBlock()),
-    ('caption', blocks.CharBlock(required=True))
-
-    class Meta:
-        icon = 'image'
-        template = 'blocks/our_research_index_thumb.html'
+# class OurResearchIndexThumb(blocks.StructBlock):
+#     ('subject_image', ImageChooserBlock()),
+#     ('caption', blocks.CharBlock(required=True))
+#
+#     class Meta:
+#         icon = 'image'
+#         template = 'blocks/our_research_index_thumb.html'
