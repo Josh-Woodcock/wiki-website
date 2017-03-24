@@ -6,6 +6,29 @@
 
 {% block content %}
 
+<head> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+    div.spacermed {
+    margin-top: 30px; }
+
+    a {color: inherit}
+
+
+[class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    width: 100%;
+}
+
+.fa { font-size: 100px;
+}
+
+div.col-sm-6 {text-align: center;}
+
+
+</style></head>
+
 
 <div class="container">
      <div class="row">
@@ -23,9 +46,34 @@
 
 
 
-       {% for block in page.subject %}
-        {% include_block block %}
+    {% for post in page.get_children %}
+        {% with post=post.specific %}
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+             <div class="card">
+
+                <a href="{% pageurl post %}">
+
+                 <div class="spacermed"> </div>
+                    <i class="fa {{post.fa_icon_subject}}" aria-hidden="true" ></i>
+                      <div class="spacermed"></div>
+                      <div class= "card-title" >
+                        <h3> {{post.title}} </h3>
+                            <div class="spacermed"></div>
+                      </div>
+                  </div>
+                          <div class="spacermed"></div>
+            </a>
+
+                </div>
+
+    {% endwith %}
     {% endfor %}
+
+
+       <!--{% for block in page.subject %}-->
+        <!--{% include_block block %}-->
+    <!--{% endfor %}-->
 
 
 

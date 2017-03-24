@@ -16,45 +16,47 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
 
 
-class FontAwesomeSizeBlock(blocks.ChoiceBlock):
-    choices = [
-        ('fa-lg'),
-        ('fa-2x'),
-        ('fa-3x'),
-        ('fa-4x'),
-        ('fa-5x'),
-    ]
+# class FontAwesomeSizeBlock(blocks.ChoiceBlock):
+#     choices = [
+#         ('fa-lg'),
+#         ('fa-2x'),
+#         ('fa-3x'),
+#         ('fa-4x'),
+#         ('fa-5x'),
+#     ]
+#
+#     class Meta:
+#         icon = 'plus'
 
-    class Meta:
-        icon = 'plus'
 
-
-class OurResearchIndexThumb(blocks.StructBlock):
-    fa_icon = blocks.CharBlock()
-    # fa_icon_size = FontAwesomeSizeBlock()
-    caption = blocks.CharBlock()
-
-    class Meta:
-        icon = 'image'
-        template = 'blocks/our_research_index_thumb.html'
+# class OurResearchIndexThumb(blocks.StructBlock):
+#     fa_icon = blocks.CharBlock()
+#     fa_icon_size = FontAwesomeSizeBlock()
+#     caption = blocks.CharBlock()
+#
+#     class Meta:
+#         icon = 'image'
+#         template = 'blocks/our_research_index_thumb.html'
 
 
 class OurResearchIndex(Page):
     intro_index = RichTextField(blank=True)
-    subject = StreamField([('subject', OurResearchIndexThumb())])
+    # subject = StreamField([('subject', OurResearchIndexThumb())])
 
     content_panels = Page.content_panels + [
         FieldPanel('intro_index'),
-        StreamFieldPanel('subject'),
+        # StreamFieldPanel('subject'),
         ]
 
 
 class OurResearchSubject(Page):
-
     intro = RichTextField(blank=True)
+    fa_icon_subject = models.CharField(max_length=255, default="fa-")
+
 
     content_panels = Page.content_panels + [
-        FieldPanel('intro', classname="full")
+        FieldPanel('intro', classname="full"),
+        FieldPanel('fa_icon_subject')
     ]
 
 
@@ -103,11 +105,3 @@ class OurResearchGalleryImage(Orderable):
         FieldPanel('caption'),
     ]
 
-
-# class OurResearchIndexThumb(blocks.StructBlock):
-#     ('subject_image', ImageChooserBlock()),
-#     ('caption', blocks.CharBlock(required=True))
-#
-#     class Meta:
-#         icon = 'image'
-#         template = 'blocks/our_research_index_thumb.html'
