@@ -36,14 +36,13 @@ div.col-sm-6 {text-align: center;}
       <div class="jumbotron text-center">
   <h2> {{page.title}} </h2>
           <div class="spacersml"></div>
-          <b> {{page.intro_index}} </b>
-
+          <p> {{page.intro_index}} </p>
       </div>
     </div>
 
+
 <div class="container-fluid">
 <div class="row">
-
 
 
     {% for post in page.get_children %}
@@ -74,8 +73,6 @@ div.col-sm-6 {text-align: center;}
        <!--{% for block in page.subject %}-->
         <!--{% include_block block %}-->
     <!--{% endfor %}-->
-
-
 
 </div>
 </div>

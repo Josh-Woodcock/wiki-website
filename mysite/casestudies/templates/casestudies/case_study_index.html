@@ -6,11 +6,36 @@
 
 {% block content %}
 
-<head><style>   body {
-padding-top: 20px; }div.spacermed {
-    margin-top: 30px; }
-                div.spacersml {
-    margin-top: 20px; }</style></head>
+<head><style>
+
+
+
+
+div.spacersml {
+    margin-top: 20px; }
+
+    a {color: inherit;
+    }
+
+
+[class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    width: 100%;
+}
+
+
+div.col-sm-6 {text-align: center;
+
+}
+
+div.card {padding: 25px; }
+
+ img {
+    display: block;
+    margin: 0 auto;
+}
+
+</style></head>
 
    <div class="container">
      <div class="row">
@@ -20,26 +45,36 @@ padding-top: 20px; }div.spacermed {
           <div class="spacersml"></div>
       </div>
     </div>
-</div>
+     </div>
 
-  <div class="container">
+
+
+
+  <div class="container-fluid">
+      <div class="row">
+
 {% for post in page.get_children %}
       {% with post=post.specific %}
 
             <div class="col-sm-6 col-md-4">
-            <div class="thumbnail"><a href="{% pageurl post %}">
-                {% with post.main_image as main_image %}
+            <a href="{% pageurl post %}"> <div class="card">
+              <img> {% with post.main_image as main_image %}
             {% if main_image %}{% image main_image max-250x250 %}{% endif %}
-        {% endwith %}</a>
+                  {% endwith %} </img>
                 <div class="spacersml"></div>
-                <div class="caption">
-                <h3><a href="{% pageurl post %}">{{ post.title }}</a></h3>
-                <div class="spacersml"></div>
+                <div class="card-title">
+                <h3>{{ post.title }}</h3>
               </div>
             </div>
+            </a>
           </div>
 
         {% endwith %}
       {% endfor %}
+
+                </div>
+            </div>
+   </div>
+
 
       {% endblock %}

@@ -151,3 +151,8 @@ WAGTAIL_USAGE_COUNT_ENABLED = True
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# Login Page / Security
+
+WAGTAIL_FRONTEND_LOGIN_TEMPLATE = 'login.html'
+PASSWORD_REQUIRED_TEMPLATE = 'password_required.html'

@@ -7,8 +7,15 @@
 {% block content %}
 
 
-<head><style> body {
+<head><style>
+
+    body {
 padding-top: 30px; }
+    img {  display: block;
+    margin: 0 auto; }
+
+
+
 </style></head>
 
 
@@ -20,10 +27,11 @@ padding-top: 30px; }
 
 
 {% for item in page.gallery_images.all %}
-        <div>
+        <img>
             {% image item.image max-5000x5000 %}
             <p>{{ item.caption }}</p>
-        </div>
+        </img>
+
     {% endfor %}
 
 
