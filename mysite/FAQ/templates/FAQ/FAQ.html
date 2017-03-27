@@ -6,16 +6,24 @@
 
 {% block content %}
 
-<head><style> body {
-padding-top: 20px; }
-</style></head>
-
-<h1>{{ page.title }}</h1>
-
-
-
-
+<div class="container">
+     <div class="row">
+    <div class="col-sm-12">
+      <div class="jumbotron text-center">
+  <h1> {{page.title}} </h1>
+          <div class="spacersml"></div>
+      </div>
 
 
+    <h2>{{ value.heading}}</h2>
 
-          {% endblock %}
+    {% for block in page.body %}
+                {% include_block block %}
+    {% endfor %}
+
+</div>
+</div>
+</div>
+
+
+      {% endblock %}

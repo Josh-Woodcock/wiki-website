@@ -27,28 +27,22 @@ from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 # Create your models here.
 
 
-class QuestionBlock(blocks.StructBlock):
+class QandABlock(blocks.StructBlock):
     question = blocks.CharBlock(required=True, max_length=255)
-
-    class Meta:
-        icon = 'help'
-        label = 'Question'
-
-
-class AnswerBlock(blocks.StructBlock):
     answer = blocks.RichTextBlock()
 
     class Meta:
-        icon = 'success'
-        label = 'Answer'
+        icon = 'help'
+        label = 'Question and Answer'
+        template = 'blocks/QandABlock.html'
 
 
 class FAQ(Page):
     intro = RichTextField(blank=True)
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
-        ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
+        ('question_and_answer', QandABlock()),
+
     ])
 
     search_fields = Page.search_fields + [
