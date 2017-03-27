@@ -1,4 +1,4 @@
-{% load static wagtailuserbar %}
+{% load menu_tags site_tags static wagtailuserbar %}
 
 <html lang="{% if request.LANGUAGE_CODE %}{{ request.LANGUAGE_CODE }}{% else %}en{% endif %}">
     <head>
@@ -42,6 +42,12 @@
 
         <!-- Block head javascript -->
 	{% block head-javascript %}
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/tether.min' %}"></script>
+
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -55,12 +61,16 @@
 
     </head>
 
+        {% block menu %}
+            {% get_site_root as site_root %}
+            {% top_menu parent=site_root calling_page=self %}
+        {% endblock %}
 
   <div class="container">
      <div class="row">
          <div class="col-md-12">
 
-    <body class="{% block body_class %}{% endblock %}">
+             <body class="{% block body_class %}{% endblock %}">
 
         {% wagtailuserbar %}
 
@@ -74,9 +84,18 @@
         {% endblock %}
 
 
+{% if user.is_authenticated %}
+    <div class="footer" id="footer">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+<a href="{% url 'logout' %}" class="btn btn-md btn-primary btn-block" role="submit">Log Out</a>
+    </div></div></div></div>
+{% endif %}
 </div>
-  </div>
-  </div>
-</nav>
 
-
+    </body>
+        </div>
+        </div>
+        </div>
+</html>
