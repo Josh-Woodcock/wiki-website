@@ -86,6 +86,9 @@ class BlogPage(Page):
     search_fields = Page.search_fields + [
         index.SearchField('body'),
         index.SearchField('author'),
+        index.SearchField('date'),
+        index.SearchField('tags'),
+
     ]
 
 class BlogPageGalleryImage(Orderable):

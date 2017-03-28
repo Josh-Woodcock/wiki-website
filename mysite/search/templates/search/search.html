@@ -6,12 +6,30 @@
 {% block title %}Search{% endblock %}
 
 {% block content %}
-    <h1>Search</h1>
 
+<head><style> h1 {
+padding-top: 50px; } div.spacer { padding-top: 25px} </style> </head>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+
+            <h1>Search</h1>
+            <div class="spacer"></div>
     <form action="{% url 'search' %}" method="get">
         <input type="text" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
-        <input type="submit" value="Search" class="button">
+        <p> </p>
+       <button class="btn btn-md btn-primary btn-block btn-signin" type="submit">Search</button></div></div>
     </form>
+</div>
+</div>
+</div>
+
+
+<div class="spacer"></div>
+
+
 
     {% if search_results %}
         <ul>

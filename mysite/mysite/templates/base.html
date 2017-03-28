@@ -34,20 +34,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
 		<!--will need to resolve these with my own CSS-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >
-	<link rel="stylesheet" type="text/css" href="{% static 'css/mdb.css' %}" >
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/css/mdb.min.css" >
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
 
         {% endblock %}
 
         <!-- Block head javascript -->
 	{% block head-javascript %}
-
-    <script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/tether.min' %}"></script>
-
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -58,6 +52,18 @@
 
         <!-- Block head extension -->
         {% block head-extension %}{% endblock %}
+    </head>
+    <body class="index-page">
+        <!-- Block body content -->
+
+        <!-- Block body javascript -->
+	{% block body-javascript %}
+
+	<script type="text/javascript" src="{% static 'js/jquery-3.1.1.js' %}"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/js/mdb.min.js"></script>
+        	{% endblock %}
+
 
     </head>
 
@@ -66,9 +72,13 @@
             {% top_menu parent=site_root calling_page=self %}
         {% endblock %}
 
+
+
+
   <div class="container">
      <div class="row">
          <div class="col-md-12">
+
 
              <body class="{% block body_class %}{% endblock %}">
 
@@ -84,15 +94,33 @@
         {% endblock %}
 
 
+
+<style>body {
+  /* Margin bottom by footer height */
+
+  margin-bottom: 100px;
+}
+ footer {
+  position: absolute;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}</style>
+
 {% if user.is_authenticated %}
-    <div class="footer" id="footer">
-    <div class="container-fluid">
-    <div class="row">
-    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-<a href="{% url 'logout' %}" class="btn btn-md btn-primary btn-block" role="submit">Log Out</a>
-    </div></div></div></div>
+        <footer class="footer">
+      <div class="container">
+<div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+<a href="{% url 'logout' %}" class="btn btn-md btn-primary btn-block" style="position: absolute;" role="submit">Log Out</a>
+
+
+      </div>
+      </div>
+      </div>
+    </footer>
 {% endif %}
-</div>
+
 
     </body>
         </div>
