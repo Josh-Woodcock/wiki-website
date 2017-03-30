@@ -6,26 +6,21 @@
 
 {% block content %}
 
-<head> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
+<head><style>
 
-    div.spacermed {
+div.spacermed {
     margin-top: 30px; }
 
-    a {color: inherit}
+a {color: inherit}
 
-
-[class^="icon-"], [class*=" icon-"] {
-    display: inline-block;
-    width: 100%;
-}
 
 .fa { font-size: 100px;
 }
 
 div.col-sm-6 {text-align: center;}
 
+div.card {padding: 5px;}
 
 </style></head>
 
@@ -43,7 +38,6 @@ div.col-sm-6 {text-align: center;}
 
 <div class="container-fluid">
 <div class="row">
-
 
     {% for post in page.get_children %}
         {% with post=post.specific %}
@@ -63,7 +57,6 @@ div.col-sm-6 {text-align: center;}
                   </div>
                           <div class="spacermed"></div>
             </a>
-
                 </div>
 
     {% endwith %}

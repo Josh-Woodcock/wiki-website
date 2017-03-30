@@ -64,8 +64,8 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/js/mdb.min.js"></script>
         	{% endblock %}
 
-
     </head>
+
 
         {% block menu %}
             {% get_site_root as site_root %}
@@ -73,12 +73,9 @@
         {% endblock %}
 
 
-
-
   <div class="container">
      <div class="row">
          <div class="col-md-12">
-
 
              <body class="{% block body_class %}{% endblock %}">
 
@@ -95,32 +92,12 @@
 
 
 
-<style>body {
-  /* Margin bottom by footer height */
-
-  margin-bottom: 100px;
-}
- footer {
-  position: absolute;
-  bottom: 0;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
-}</style>
-
-{% if user.is_authenticated %}
+  {% if user.is_authenticated %}
         <footer class="footer">
       <div class="container">
 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
 <a href="{% url 'logout' %}" class="btn btn-md btn-primary btn-block" style="position: absolute;" role="submit">Log Out</a>
-
-
-      </div>
-      </div>
-      </div>
-    </footer>
-{% endif %}
-
+ {% endif %}
 
     </body>
         </div>
