@@ -2,9 +2,8 @@
 {% load wagtailcore_tags %}
 
 {% block content %}
-<head><style> body {
-padding-top: 20px; }
-</style></head>
+
+
     {% if request.GET.tag|length %}
         <h4>Showing pages tagged "{{ request.GET.tag }}"</h4>
     {% endif %}
