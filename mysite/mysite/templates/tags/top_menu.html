@@ -28,20 +28,24 @@
                 {% endif %}
             </li>
         {% endfor %}
-         </ul>
+            </ul>
 
-    {% if user.is_authenticated %}
-        <form class="navbar-right">
-            <div class="container">
-                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                    <a href="{% url 'logout' %}" class="btn btn-md btn-primary btn-block"
-                       role="submit"> Log Out
-                    </a>
+                <!--<div class="nav navbar-nav navbar-right">-->
+                            <!--<a href="{% url 'logout' %}" class="btn btn-md btn-primary btn-block"-->
+                               <!--role="submit"> Log Out-->
+                            <!--</a>-->
+                <!--</div>-->
+
+
+             <form class="navbar-form navbar-right" role="search" action="{% url 'search' %}" method="get">
+                 <div class="input-group">
+                    <input type="text" name="query" class="form-control" placeholder="Search…"
+                           value="{{ search_query }}"/>
+                     <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-xs">
+                        </button></span>
                 </div>
-            </div>
-        </form>
-    {% endif %}
-
+            </form>
 
     </div>
         </div>
