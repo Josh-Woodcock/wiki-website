@@ -1,3 +1,4 @@
+{% load menu_tags site_tags static wagtailuserbar %}
 
 <head>
    <title>
@@ -31,38 +32,15 @@
 
  p, b , li, .btn  {font-family: 'Open Sans', sans-serif; }
 
-        div.spacer {
-    margin-top: 80px; }
 
          div.spacersml {
     margin-top: 20px; }
 
-        div.spacermed {
-    margin-top: 55px; }
 
          div.spacerxl {
     margin-top: 85px; }
 
-        .media-object {  margin: 4px 30px 30px 10px}
 
-.carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 90%;
-      margin: auto;
-  }
-
-        .carousel-indicators li {
-  background-color: #999;
-  background-color: rgba(70,70,70,.25);
-}
-
-.carousel-indicators .active {
-  background-color: #444;
-}
-
-.carousel-indicators {
-  bottom:-25px;
-}
 
 [class^="icon-"], [class*=" icon-"] {
     display: inline-block;
@@ -146,6 +124,11 @@ a.class2:active {
 </head>
 
 <body>
+
+        {% block menu %}
+            {% get_site_root as site_root %}
+            {% top_menu parent=site_root calling_page=self %}
+        {% endblock %}
 
 
 <div class="container1">
