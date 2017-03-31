@@ -11,29 +11,32 @@
 
 
 
-div.spacersml {
-    margin-top: 20px; }
+        div.spacersml {
+            margin-top: 20px; }
 
-    a {color: inherit;
-    }
-
-
-[class^="icon-"], [class*=" icon-"] {
-    display: inline-block;
-    width: 100%;
-}
+            a {color: inherit;
+            }
 
 
-div.col-sm-6 {text-align: center;
+        [class^="icon-"], [class*=" icon-"] {
+            display: inline-block;
+            width: 100%;
+        }
 
-}
 
-div.card {padding: 25px; }
+        div.col-sm-6 {text-align: center;
 
- img {
-    display: block;
-    margin: 0 auto;
-}
+        }
+
+        div.card {padding: 25px; }
+
+         img {
+            display: block;
+            margin: 0 auto;
+        }
+
+
+
 
 </style></head>
 
@@ -41,11 +44,23 @@ div.card {padding: 25px; }
      <div class="row">
     <div class="col-sm-12">
       <div class="jumbotron text-center">
-  <h1> {{page.title}} </h1>
-          <div class="spacersml"></div>
+
+          {% if page.intro %}
+
+          <div class="page-header">
+                <h2> {{page.title}} </h2>
+          </div>
+                    {{page.intro}}
+
+          {% else %}
+                <h2> {{page.title}} </h2>
+          {% endif %}
+
       </div>
     </div>
      </div>
+     </div>
+
 
 
 
