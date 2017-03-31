@@ -38,7 +38,7 @@ class QandABlock(blocks.StructBlock):
 
 
 class FAQ(Page):
-    intro = RichTextField(blank=True)
+    intro = models.CharField(max_length=500, blank=True)
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
         ('question_and_answer', QandABlock()),

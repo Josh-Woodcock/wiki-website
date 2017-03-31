@@ -40,7 +40,7 @@ from wagtail.wagtailsearch import index
 
 
 class OurResearchIndex(Page):
-    intro_index = RichTextField(blank=True)
+    intro_index = models.CharField(max_length=500, blank=True)
     # subject = StreamField([('subject', OurResearchIndexThumb())])
 
     content_panels = Page.content_panels + [
@@ -50,10 +50,8 @@ class OurResearchIndex(Page):
 
 
 class OurResearchSubject(Page):
-    intro = RichTextField(blank=True)
+    intro = models.CharField(max_length=500, blank=True)
     fa_icon_subject = models.CharField(max_length=255, default="fa-")
-
-
     content_panels = Page.content_panels + [
         FieldPanel('intro', classname="full"),
         FieldPanel('fa_icon_subject')

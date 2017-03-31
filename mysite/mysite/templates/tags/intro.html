@@ -1,0 +1,11 @@
+{% if page.intro %}
+
+        <div class="page-header">
+            <h2> {{page.title}} </h2>
+        </div>
+                {{page.intro}}
+
+        {% else %}
+            <h2> {{page.title}} </h2>
+
+    {% endif %}

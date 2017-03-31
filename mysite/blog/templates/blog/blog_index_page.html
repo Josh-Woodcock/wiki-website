@@ -17,9 +17,16 @@
      <div class="row">
     <div class="col-sm-12">
       <div class="jumbotron text-center">
-  <h2> {{page.title}} </h2>
-          <div class="spacersml"></div>
-          <p> {{page.intro_index}} </p>
+   {% if page.intro %}
+
+          <div class="page-header">
+                <h2> {{page.title}} </h2>
+          </div>
+                    {{page.intro}}
+
+          {% else %}
+                <h2> {{page.title}} </h2>
+          {% endif %}
       </div>
 
     <div class="col-sm-12">

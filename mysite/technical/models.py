@@ -23,7 +23,7 @@ from django.db import models
 
 
 class TechnicalPage(Page):
-    description = RichTextField(blank=True)
+    description = models.CharField(max_length=500, blank=True)
 
     body = StreamField([
         ('main_heading', blocks.CharBlock(classname="full title")),

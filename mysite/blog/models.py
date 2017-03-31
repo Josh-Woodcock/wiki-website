@@ -20,7 +20,7 @@ from wagtail.contrib.table_block.blocks import TableBlock
 # PAGE MODELS
 
 class BlogIndexPage(Page):
-    intro = RichTextField(blank=True)
+    intro = models.CharField(max_length=500, blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('intro', classname="full")
