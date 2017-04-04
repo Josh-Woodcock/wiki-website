@@ -1,0 +1,21 @@
+    {% block content %}
+
+
+      <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
+<div class="media">
+  <div class="media-left">
+    <img src="{{value.image}}" class="media-object"  style="width:211px; height:182px;">
+      </div>
+  <div class="media-body">
+    <h2 class="media-heading"> {{ value.title }} </h2>
+        <div class="spacersml"></div>
+
+            <p class="text-justify"> {{ value.text }} </p>
+
+            <div class="spacersml"></div>
+
+      <a href="{{value.link}}"> <button type="button" class="btn btn-info"> Read More </button></a>
+
+  </div></div></div>
+
+        {% endblock %}

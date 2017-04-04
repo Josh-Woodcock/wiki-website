@@ -1,4 +1,4 @@
-{% load menu_tags site_tags static wagtailuserbar %}
+{% load menu_tags site_tags static wagtailuserbar wagtailcore_tags %}
 
 <head>
    <title>
@@ -14,11 +14,13 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
 
@@ -130,6 +132,31 @@ a.class2:active {
             {% top_menu parent=site_root calling_page=self %}
         {% endblock %}
 
+
+
+        <div class="container">
+     <div class="row">
+    <div class="col-sm-12">
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+            {% for block in page.body %}
+      <li data-target="#myCarousel" data-slide-to="{{forloop.counter0}}" class="{% if forloop.counter0 == 0 %}active{% endif %}"></li>
+            {% endfor %}
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+        {% for block in page.body %}
+                {% include_block block %}
+    {% endfor %}
+
+
+</div></div></div></div>
 
 <div class="container1">
         <div class="row">
