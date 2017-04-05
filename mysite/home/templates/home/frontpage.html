@@ -35,13 +35,20 @@
  p, b , li, .btn  {font-family: 'Open Sans', sans-serif; }
 
 
+                      /* Spacers */
+
+
          div.spacersml {
     margin-top: 20px; }
+
+         div.spacer { margin-top: 50px;}
 
 
          div.spacerxl {
     margin-top: 85px; }
 
+
+                     /* Containers */
 
 
 [class^="icon-"], [class*=" icon-"] {
@@ -69,13 +76,37 @@
 
         }
 
- p, b , li, .btn  {font-family: 'Open Sans', sans-serif; }
+
+            /* Carousel */
+
 
 .carousel .item {
   height: 200px;
 }
 
-            a {font-family: "Open Sans",  sans-serif;}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 90%;
+      margin: auto;
+  }
+
+        .carousel-indicators li {
+  background-color: #999;
+  background-color: rgba(70,70,70,.25);
+}
+
+.carousel-indicators .active {
+  background-color: #444;
+}
+
+.carousel-indicators {
+  bottom:-60px;
+}
+
+
+
+
+a {font-family: "Open Sans",  sans-serif;}
 
     /* unvisited link */
 
@@ -132,7 +163,7 @@ a.class2:active {
             {% top_menu parent=site_root calling_page=self %}
         {% endblock %}
 
-
+        <div class="spacer"></div>
 
         <div class="container">
      <div class="row">
@@ -151,12 +182,15 @@ a.class2:active {
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
 
-        {% for block in page.body %}
-                {% include_block block %}
+    {% for block in page.body %}
+        {% include_block block %}
     {% endfor %}
 
 
 </div></div></div></div>
+
+                    <div class="spacerxl"></div>
+
 
 <div class="container1">
         <div class="row">
@@ -197,7 +231,7 @@ a.class2:active {
                        <!--<button type="button" class="btn btn-default btn-sm" >Read More</button>-->
                            </div>
 
-        </div> </div> </div>
+        </div> </div>
 
          <div class="spacerxl"></div>
 
@@ -243,5 +277,7 @@ a.class2:active {
                            </div>
 
 </div> </div>
+
+            </div>
 
 </body>

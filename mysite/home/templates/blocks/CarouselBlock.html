@@ -1,20 +1,23 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
     {% block content %}
 
 
       <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
 <div class="media">
-  <div class="media-left">
-    <img src="{{value.image}}" class="media-object"  style="width:211px; height:182px;">
+  <div class="media-left" style="padding-right: 30px">
+{% image value.image width-400 %}
       </div>
-  <div class="media-body">
-    <h2 class="media-heading"> {{ value.title }} </h2>
-        <div class="spacersml"></div>
 
-            <p class="text-justify"> {{ value.text }} </p>
+  <div class="media-body">
+    <h1 class="media-heading"> {{ value.title }} </h1>
+        <div class="spacersml"></div>
+            <h4> {{ value.text }} </h4>
 
             <div class="spacersml"></div>
 
-      <a href="{{value.link}}"> <button type="button" class="btn btn-info"> Read More </button></a>
+      <a href="{% pageurl value.link %}"> <button type="button" class="btn btn-info"> Read More </button></a>
 
   </div></div></div>
 
