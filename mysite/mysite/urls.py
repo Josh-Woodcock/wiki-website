@@ -12,6 +12,7 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.contrib.wagtailsitemaps.views import sitemap
 from django.contrib.auth import views as auth_views
 
+from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
@@ -21,6 +22,7 @@ urlpatterns = [
     url(r'^documents/', include(wagtaildocs_urls)),
     url('^sitemap\.xml$', sitemap),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logout.html'}, name='logout'),
+
 
     url(r'^search/$', search_views.search, name='search'),
 
