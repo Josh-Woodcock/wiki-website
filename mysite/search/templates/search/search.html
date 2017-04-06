@@ -8,7 +8,11 @@
 {% block content %}
 
 <head><style> h1 {
-padding-top: 50px; } div.spacer { padding-top: 25px} </style> </head>
+padding-top: 25px; }
+
+div.spacer { padding-top: 25px}
+
+div.spacerlg { padding-top: 50px </style> </head>
 
 
 <div class="container-fluid">
@@ -16,11 +20,10 @@ padding-top: 50px; } div.spacer { padding-top: 25px} </style> </head>
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
 
             <h1>Search</h1>
-            <div class="spacer"></div>
+            <div class="spacerlg"></div>
     <form action="{% url 'search' %}" method="get">
         <input type="text" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
-        <p> </p>
-       <button class="btn btn-md btn-primary btn-block btn-signin" type="submit">Search</button></div></div>
+<div class="spacer">
     </form>
 </div>
 </div>
@@ -28,8 +31,6 @@ padding-top: 50px; } div.spacer { padding-top: 25px} </style> </head>
 
 
 <div class="spacer"></div>
-
-
 
     {% if search_results %}
         <ul>
