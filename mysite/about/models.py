@@ -24,10 +24,10 @@ from django.db import models
 
 class AboutPage(Page):
     body = StreamField([
-        ('heading', blocks.CharBlock(classname="full title")),
-        ('paragraph', blocks.RichTextBlock()),
+        ('section_heading', blocks.CharBlock(classname="full title")),
+        ('text', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
-    ])
+    ], null=True)
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),

@@ -2,76 +2,88 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-blogpage{% endblock %}
-
-{% block content %}
-
-{% extends 'base.html' %}}
-
-{% load wagtailcore_tags wagtailimages_tags %}
-
-{% block body_class %}template-technicalpage{% endblock %}
+{% block body_class %}template-aboutpage{% endblock %}
 
 {% block content %}
 
 <style>
+
+    div.spacer {
+    margin-top: 30px; }
+
+       div.spacerlrg {
+    margin-top: 60px; }
+
+
   body {
       position: relative;
   }
+
   ul.nav-pills {
-      top: 20px;
+      top: 16px;
       position: fixed;
+
   }
+  div.col-sm-8 div {
+      left: 50px;
+  }
+
+  .nav-pills {position: fixed;
+      margin-top:50px;}
+
   @media screen and (max-width: 810px) {
-    #section1, #section2, #section3, #section41, #section42  {
+    #section1, #section2, #section3, #section4, #section5, #section6, #section7, #section8 {
         margin-left: 150px;
     }
   }
+
+    @media (min-width: 768px) {
+    .affix {
+        position: fixed;
+    }
+}
+
+    @media (max-width: 767px) {
+    .affix {
+        position: static;
+    }
+}
   </style>
 
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+<body data-spy="scroll" data-target=".nav" data-offset="20">
 
 <div class="container">
   <div class="row">
-    <nav class="col-sm-3" id="myScrollspy">
+
+    <nav class="col-sm-4">
       <ul class="nav nav-pills nav-stacked">
 
-          {{% for heading in page.body %}}
-                {{ n = 0 }}
-          <li class="active"><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
-
-          {{% endfor %}}
-
-          {{% for %}}
-                {{ n = 1 }}
-          <li><a href="#section{{n+1}}">{{page.section_heading}}</a></li>
-
-          {{% endfor %}}
+      {% for block in page.body %}
+          {% if block.block_type == 'section_heading' %}
+          <li {% if forloop.counter == 1 %}class="active"{% endif %}><a href="#section{{forloop.counter}}">
+            {{ block.value }}{% endif %} </a></li>
+      {% endfor %}
 
           </ul>
-        </li>
-      </ul>
     </nav>
 
-<div class="col-sm-9">
-    {{% for %}}
-        {{ n = 0}}
-      <div id="section{{ n + 1 }}">
-        <h1>{{ page.sub_heading}}</h1>
-            {{ page.text }}
-      </div>
-    {{% endfor %}}
 
+<div class="col-sm-8">
 
-    <div>
+    {{page.title}}
+
     {% for block in page.body %}
-        {{ n = 0}}
-        {% if block.block_type == 'heading' %}
-        <div id="section{{n + 1}}"> {{ block.value }} </div>
-        {% else %}
-            <section class="block-{{ block.block_type }}">
-                {% include_block block %}
-            </section>
-        {% endif %}
+      <div id="section{{forloop.counter}}">
+          {% if block.block_type == 'section_heading' %}<h1>{{ block.value}}</h1>{% endif %}
+          {% if block.block_type == 'text' %}<p>{{ block.value}}</p>{% endif %}
+      </div>
     {% endfor %}
-</article>
+
+</div>
+
+  </div>
+</div>
+</body>
+
+
+{% endblock %}
