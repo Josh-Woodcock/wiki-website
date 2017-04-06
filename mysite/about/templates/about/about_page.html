@@ -8,55 +8,22 @@
 
 <style>
 
-    div.spacer {
-    margin-top: 30px; }
-
-       div.spacerlrg {
-    margin-top: 60px; }
-
 
   body {
       position: relative;
   }
 
-  ul.nav-pills {
-      top: 16px;
-      position: fixed;
-
-  }
-  div.col-sm-8 div {
-      left: 50px;
+affix {
+      top: 20px;
   }
 
-  .nav-pills {position: fixed;
-      margin-top:50px;}
 
-  @media screen and (max-width: 810px) {
-    #section1, #section2, #section3, #section4, #section5, #section6, #section7, #section8 {
-        margin-left: 150px;
-    }
-  }
-
-    @media (min-width: 768px) {
-    .affix {
-        position: fixed;
-    }
-}
-
-    @media (max-width: 767px) {
-    .affix {
-        position: static;
-    }
-}
   </style>
 
-<body data-spy="scroll" data-target=".nav" data-offset="20">
 
 <div class="container">
-  <div class="row">
-
-    <nav class="col-sm-4">
-      <ul class="nav nav-pills nav-stacked">
+    <nav class="col-sm-3">
+        <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="40">
 
       {% for block in page.body %}
           {% if block.block_type == 'section_heading' %}
@@ -66,6 +33,9 @@
 
           </ul>
     </nav>
+
+    <body data-spy="scroll" data-target=".nav" data-offset="10">
+
 
 
 <div class="col-sm-8">

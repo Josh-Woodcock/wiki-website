@@ -1,5 +1,14 @@
 {% load site_tags menu_tags wagtailcore_tags %}
 {% get_site_root as site_root %}
+{% load menu_tags site_tags static wagtailuserbar %}
+
+<style> .navbar-header {
+    float: left;
+    padding-top: 10px;
+}
+.navbar-brand {float:none;}
+</style>
+
 
 <nav class="navbar navbar-default">
      <div class="container-fluid">
@@ -12,11 +21,14 @@
                 <span class="icon-bar"></span>
             </button>
       <a class="navbar-brand" href="{% pageurl site_root %}" title="{{ site_root.title }}">
-      <img src="http://n8hpc.org.uk/wp-content/uploads/2015/09/N8HighPerformanceComputing.png" style= "width:128px;height:30px;center"  >
+      <img id="brand" src="http://n8hpc.org.uk/wp-content/uploads/2015/09/N8HighPerformanceComputing.png" style= "width:128px;height:30px;display: inline-block;
+    vertical-align: middle;
+    float: none;"
+           >
       </a>
      </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse">
          <ul class="nav navbar-nav">
         {% for menuitem in menuitems %}
             <li class="{% if menuitem.show_dropdown %}dropdown{% endif %}{% if menuitem.active %} active{% endif %}">
@@ -30,8 +42,6 @@
         {% endfor %}
             </ul>
 
-
-
         <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -42,6 +52,7 @@
                     </ul>
                 </li>
             </ul>
+
 
            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
