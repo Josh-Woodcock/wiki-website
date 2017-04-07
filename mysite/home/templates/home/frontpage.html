@@ -1,7 +1,21 @@
 {% load menu_tags site_tags static wagtailuserbar wagtailcore_tags %}
 
 <head>
-   <title>
+
+   <!-- This meta tag *must* come first in the head; any other head content must come *after* these tag -->
+        <meta charset="utf-8">
+
+        <!-- Block head meta -->
+	{% block head-meta %}
+
+	<!-- The following two meta tags *must* come next in the head; any other head content must come *after* these tags -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% endblock %}
+
+        <!-- Page title -->
+        <title>
             {% block title %}
                 {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
             {% endblock %}
@@ -12,10 +26,10 @@
             {% endblock %}
         </title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Block head css -->
+	{% block head-css %}
 
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
@@ -23,6 +37,23 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/css/mdb.min.css" >
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
+
+        {% endblock %}
+
+        <!-- Block head javascript -->
+	{% block head-javascript %}
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+            <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	{% endblock %}
+
+
+	<script type="text/javascript" src="{% static 'js/jquery-3.1.1.js' %}"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/js/mdb.min.js"></script>
 
     <style>
 
@@ -60,16 +91,12 @@
     padding-left: 90px;
 }
 
-.container #two {background-color: #ffffff ; padding-top: 40px;
+.container #two {background-color: #ffffff; color:#000000 ; padding-top: 40px;
     padding-right: 90px;
     padding-bottom: 40px;
     padding-left: 90px; }
 
         div.col-sm-3 {text-align: center;}
-
-        .my-btn {background-color:#104794; color: #ffffff;
-
-        }
 
 
             /* Carousel */
@@ -99,7 +126,7 @@
 }
 
 
-    /* unvisited link */
+   /* unvisited link */
 
         a:link {
    color: #ffffff;
@@ -115,44 +142,37 @@ a:hover {
 }
 
 /* selected link */
-a:active {
-    color: #ffffff;
-    text-decoration: underline;
-    font-weight: bold;
+
 }
 
 
-a.class2:link {
+.class2:link {
    color: #000000;
 }
 
-a.class2:visited {
+.class2:visited {
     color:#000000; }
 
 /* mouse over link */
-a.class2:hover {
+.class2:hover {
        color: #000000;
     text-decoration: underline;
 }
 
 /* selected link */
-a.class2:active {
-    color: #000000;
-    text-decoration: underline;
-    font-weight: bold;
+
 }
-
-
     </style>
 
 </head>
 
-<body>
-
-        {% block menu %}
+{% block menu %}
             {% get_site_root as site_root %}
             {% top_menu parent=site_root calling_page=self %}
         {% endblock %}
+
+
+<body>
 
         <div class="spacer"></div>
 
@@ -178,7 +198,7 @@ a.class2:active {
     {% endfor %}
 
 
-</div></div></div></div>
+</div></div>
 
                     <div class="spacerxl"></div>
 
@@ -230,8 +250,8 @@ a.class2:active {
         <div class="row">
 
             <div class="col-sm-3">
-                <a href="https://n8hpc.org.uk/access/" class="class2"> <i class="fa fa-university" aria-hidden="true"></i> </a>
-                <h3> <a href="https://n8hpc.org.uk/access/" class="class2"> Academic </a> </h3>
+                <a href="https://n8hpc.org.uk/access/" class="class2" > <i class="fa fa-university" aria-hidden="true"></i> </a>
+                <h3> <a href="https://n8hpc.org.uk/access/" class="class2" > Academic </a> </h3>
 <p> For information on how to gain access to N8 HPC. </p>
                 <div class="spacersml"></div>
                        <!--<button type="button" class="btn btn-default btn-sm my-btn" >Read More</button>-->
@@ -261,12 +281,15 @@ a.class2:active {
                            <div class="col-sm-3">
                                <a href="https://n8hpc.org.uk/about/" class="class2">
                                    <i class="fa fa-info-circle" aria-hidden="true"></i> </a>
-                               <h3> <a> <a href="https://n8hpc.org.uk/about/" class="class2" > About </a> </a> </h3>
+                               <h3> <a> <a href="https://n8hpc.org.uk/about/" class="class2"> About </a> </a> </h3>
 <p> Read more about the facilities, governance and skills that N8 HPC can offer. </p>
                                <div class="spacersml"></div>
                        <!--<button type="button" class="btn btn-default btn-sm my-btn" >Read More</button>-->
                            </div>
 
-</div> </div> </div>
+        </div> </div>
+
+
+    </div></div> </div>
 
 </body>

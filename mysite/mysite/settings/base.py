@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'events',
     'technical',
     'about',
+    'menu_pages',
 
     'wagtailmenus',
 
