@@ -1,6 +1,6 @@
 {% extends 'base.html' %}}
 
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load site_tags menu_tags wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-technicalpage{% endblock %}
 
@@ -8,6 +8,8 @@
 
 <style>
 
+    a {
+        color: inherit;}
 
   body {
       position: relative;
@@ -52,7 +54,6 @@ div.spacer { margin-top: 20px; }
           {% if block.block_type == 'section_heading' %}<h2>{{ block.value}}</h2> <div class="spacer"></div>
           {% elif block.block_type == 'sub_section_heading' %}<h3>{{ block.value}}</h3> <div class="spacer"></div>
           {% elif block.block_type == 'text' %}<p>{{ block.value}}</p> <div class="spacer"></div> <br> {% endif %}
-
       </div>
     {% endfor %}
 

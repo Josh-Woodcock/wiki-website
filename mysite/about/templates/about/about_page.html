@@ -8,6 +8,8 @@
 
 <style>
 
+       a {
+        color: inherit;}
 
   body {
       position: relative;
@@ -43,8 +45,9 @@
 
     {% for block in page.body %}
       <div id="section{{forloop.counter}}">
-          {% if block.block_type == 'section_heading' %}<h2>{{ block.value}}</h2>{% endif %}
-          {% if block.block_type == 'text' %}<p>{{ block.value}}</p>{% endif %}
+          {% if block.block_type == 'section_heading' %}<h2>{{ block.value}}</h2>  <div class="spacer"></div>
+          {% elif block.block_type == 'text' %}<p>{{ block.value}}</p> <div class="spacer"></div> <br>
+          {% endif %}
       </div>
     {% endfor %}
 
