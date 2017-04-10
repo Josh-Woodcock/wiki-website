@@ -7,51 +7,59 @@
 {% block content %}
 
 <style>
+
+
   body {
       position: relative;
   }
-  ul.nav-pills {
+
+.affix {
       top: 20px;
-      position: fixed;
   }
-  @media screen and (max-width: 810px) {
-    #section1, #section2, #section3, #section41, #section42  {
-        margin-left: 150px;
-    }
-  }
+
+div.spacer { margin-top: 20px; }
+    div.spacerlg { margin-top: 60px; }
+
   </style>
 
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+<body>
+
 
 <div class="container">
-  <div class="row">
-    <nav class="col-sm-3" id="myScrollspy">
-      <ul class="nav nav-pills nav-stacked">
+    <div class="row">
+    <nav class="col-sm-4">
+        <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100">
+        <h4> {{page.title }} </h4>
+            <div class="spacer"></div>
+      {% for block in page.body %}
+          {% if block.block_type == 'section_heading' %}
+            <h5><a href="#section{{forloop.counter}}"> {{block.value}}</a></h5>
+          {% elif block.block_type == 'sub_section_heading' %}
+          <li><a href="#section{{forloop.counter}}">
+            {{ block.value }}{% endif %} </a></li>
+      {% endfor %}
 
-          {% for section_heading in page.body %}
-                <!--{{ forloop.counter }}-->
-
-          <li class="active"><a href="#section{{ forloop.counter }}">{{page.section_heading}}</a></li>
-
-
-                  {% for section_heading in page.body %}
-
-                  <li><a href="#section{{ forloop.counter }}">{page.section_heading}</a></li>
-
-                  {% endfor %}
-
-          {% endfor %}
           </ul>
-        </li>
-      </ul>
     </nav>
 
-<div class="col-sm-9">
+<div class="col-sm-8">
+
+    <h1>{{page.title}}</h1>
+    <h4>{{page.description}}</h4>
+            <div class="spacerlg"></div>
     {% for block in page.body %}
-      <div id="section{{ forloop.counter }}">
-        <h1>{{ page.sub_heading}}</h1>
-            {{ page.text }}
+      <div id="section{{forloop.counter}}">
+          {% if block.block_type == 'section_heading' %}<h2>{{ block.value}}</h2> <div class="spacer"></div>
+          {% elif block.block_type == 'sub_section_heading' %}<h3>{{ block.value}}</h3> <div class="spacer"></div>
+          {% elif block.block_type == 'text' %}<p>{{ block.value}}</p> <div class="spacer"></div> <br> {% endif %}
+
       </div>
     {% endfor %}
 
-    {% endblock %}
+</div>
+</div>
+</div>
+</body>
+
+
+{% endblock %}

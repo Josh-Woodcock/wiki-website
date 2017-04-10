@@ -23,12 +23,13 @@ from django.db import models
 
 
 class TechnicalPage(Page):
-    description = models.CharField(max_length=500, blank=True)
 
+    description = models.CharField(max_length=500, blank=True)
     body = StreamField([
-        ('main_heading', blocks.CharBlock(classname="full title")),
-        ('section_heading', blocks.RichTextBlock()),
-        ('paragraph', blocks.RichTextBlock()),
+        ('section_heading', blocks.CharBlock(classname="full title")),
+        ('sub_section_heading', blocks.CharBlock()),
+        ('text', blocks.RichTextBlock()),
+        ('image', ImageChooserBlock()),
     ])
 
     content_panels = Page.content_panels + [
