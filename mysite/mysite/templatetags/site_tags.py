@@ -1,7 +1,8 @@
+from django.http import HttpResponse
+from django.template import RequestContext
 from django import template
 
 register = template.Library()
-
 
 @register.assignment_tag(takes_context=True)
 def get_site_root(context):
