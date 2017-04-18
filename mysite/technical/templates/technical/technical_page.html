@@ -35,12 +35,11 @@ div.spacer { margin-top: 20px; }
             <div class="spacer"></div>
       {% for block in page.body %}
           {% if block.block_type == 'section_heading' %}
-            <h5><a href="#section{{forloop.counter}}"> {{block.value}}</a></h5>
+            <br><h5><a href="#section{{forloop.counter}}"> {{block.value}}</a></h5>
           {% elif block.block_type == 'sub_section_heading' %}
           <li><a href="#section{{forloop.counter}}">
             {{ block.value }}{% endif %} </a></li>
       {% endfor %}
-
           </ul>
     </nav>
 

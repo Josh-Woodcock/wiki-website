@@ -12,6 +12,9 @@
 div.spacermed {
     margin-top: 10px; }
 
+div.spacerlg {
+    margin-top: 30px; }
+
     ul.share-buttons{
   list-style: none;
   padding: 0;
@@ -113,6 +116,14 @@ ul.share-buttons .sr-only {
 </article>
 
 
+<div class="spacerlg"></div>
+
+ <a class="btn btn-primary btn-sm" href="{{ page.get_parent.url }}"> Return to Events </a>
+          <div class="spacer"></div>
+
+<div class="spacerlg"></div>
+
+
 {% if page.tags.all.count %}
 <div class="tags">
     <h5> Tags </h5>
@@ -122,9 +133,9 @@ ul.share-buttons .sr-only {
 </div>
 {% endif %}
 
+      <div class="spacerlg"></div>
 
-<p><a href="{{ page.get_parent.url }}">Return to Events</a></p>
 
-  </a></div>
+
 
 {% endblock %}
