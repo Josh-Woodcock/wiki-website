@@ -61,17 +61,14 @@
      </div>
      </div>
 
-
-
-
-
   <div class="container-fluid">
       <div class="row">
+                <div class="col-sm-6 col-md-4">
+
 
 {% for post in page.get_children %}
       {% with post=post.specific %}
 
-            <div class="col-sm-6 col-md-4">
             <a href="{% pageurl post %}"> <div class="card">
               <img> {% with post.main_image as main_image %}
             {% if main_image %}{% image main_image max-250x250 %}{% endif %}
@@ -89,7 +86,6 @@
 
                 </div>
             </div>
-   </div>
 
 
       {% endblock %}
