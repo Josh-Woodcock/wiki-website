@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'about',
     'menu_pages',
     'documents',
+    'contact',
 
     'wagtailmenus',
 
