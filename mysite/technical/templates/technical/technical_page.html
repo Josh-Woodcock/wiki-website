@@ -31,8 +31,7 @@ div.spacer { margin-top: 20px; }
     <div class="row">
     <nav class="col-sm-3 hidden-xs hidden-sm hidden-print">
         <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100">
-        <h4> {{page.title }} </h4>
-            <div class="spacer"></div>
+            <h4> {{page.title }} </h4>
       {% for block in page.body %}
           {% if block.block_type == 'section_heading' %}
             <br><h5><a href="#section{{forloop.counter}}"> {{block.value}}</a></h5>
