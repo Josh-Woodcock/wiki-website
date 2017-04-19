@@ -23,7 +23,6 @@ urlpatterns = [
     url('^sitemap\.xml$', sitemap),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logout.html'}, name='logout'),
 
-
     url(r'^search/$', search_views.search, name='search'),
 
     # For anything not caught by a more specific rule above, hand over to
