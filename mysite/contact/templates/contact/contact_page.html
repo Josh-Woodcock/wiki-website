@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-contact_page{% endblock %}
+
+{% block content %}
+
+<style> div.spacer {margin-top: 20px;} </style>
+
+<h2>{{ page.title }}</h2>
+<br>
+    <article>
+    {% for block in page.body %}
+            <section>
+                {% if block.block_type == 'heading' %}<h3>{{ block.value}}</h3> <div class="spacer"></div>
+                {% else %}
+                {% include_block block %}
+                {% endif %}
+            </section>
+    {% endfor %}
+</article>
+
+{% endblock %}
