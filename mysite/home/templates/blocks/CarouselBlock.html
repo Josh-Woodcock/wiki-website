@@ -4,13 +4,13 @@
     {% block content %}
       <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
 <div class="media">
-  <div class="pull-left visible-lg visible-md media-left" style="padding-right: 30px">
+  <div class="pull-left visible-lg visible-md visible-sm media-left" style="padding-right: 30px">
 {% image value.image width-400 %}
       </div>
 
   <div class="media-body">
     <h1 class="media-heading"> {{ value.title }} </h1>
-      <div class="pull-left hidden-lg hidden-md media-left" style="padding-right: 30px">
+      <div class="pull-left hidden-lg hidden-md hidden-sm media-left" style="padding-right: 30px">
           <div class="spacersml"></div>
       {% image value.image width-150 %}
       </div>
