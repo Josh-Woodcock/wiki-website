@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %} %}
 
 {% block body_class %}template-blogindexpage{% endblock %}
 
@@ -11,7 +11,10 @@
     div.spacermed {
     margin-top: 30px; }
                 div.spacersml {
-    margin-top: 20px; }</style></head>
+    margin-top: 20px; }
+
+
+</style></head>
 
    <div class="container">
      <div class="row">
@@ -29,13 +32,22 @@
           {% endif %}
       </div>
 
-    <div class="col-sm-12">
+        <div class="container-fluid">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 ">
 
 {% for post in page.get_children %}
     {% with post=post.specific %}
         <h2><b>{{ post.title }}</b></h2>
         <p class="meta"> {{ post.date }} </p>
         <div class="spacersml"></div>
+
+        {% for item in post.gallery_images.all %}
+        <div style="float: center ; margin: auto">
+            {% image item.image fill-560x312 %}
+            <p>{{ item.caption }}</p>
+        </div>
+    {% endfor %}
+
         {{ post.body}}
         <div class="spacermed"></div>
         <hr>
@@ -44,7 +56,7 @@
 {% endfor %}
     </div>
         <div class="spacermed"></div>
-
+</div>
     </div></div></div>
 
 

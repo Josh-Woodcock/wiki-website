@@ -65,15 +65,16 @@ class BlogCategory(models.Model):
 class BlogPage(Page):
     author = models.CharField(max_length=255)
     date = models.DateField("Post date")
+    image = ImageChooserBlock(),
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
     ])
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
 
     content_panels = Page.content_panels + [
+        InlinePanel('gallery_images', label="Post Image"),
         StreamFieldPanel('body'),
         MultiFieldPanel([
             FieldPanel('author'),
