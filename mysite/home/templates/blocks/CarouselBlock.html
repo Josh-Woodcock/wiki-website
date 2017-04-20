@@ -2,20 +2,21 @@
 
 
     {% block content %}
-
       <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
 <div class="media">
-  <div class="media-left" style="padding-right: 30px">
+  <div class="pull-left visible-lg visible-md media-left" style="padding-right: 30px">
 {% image value.image width-400 %}
       </div>
 
   <div class="media-body">
     <h1 class="media-heading"> {{ value.title }} </h1>
+      <div class="pull-left hidden-lg hidden-md media-left" style="padding-right: 30px">
+          <div class="spacersml"></div>
+      {% image value.image width-150 %}
+      </div>
         <div class="spacersml"></div>
             <h4> {{ value.text }} </h4>
-
             <div class="spacersml"></div>
-
       <a href="{% pageurl value.link %}"> <button type="button" class="btn btn-info"> Read More </button></a>
 
   </div></div></div>
