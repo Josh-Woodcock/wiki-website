@@ -6,8 +6,10 @@
 }
 .navbar-brand {float:none;}
 
-.navbar-default { z-index: 999;
-                    }
+
+    body.modal-open div.modal-backdrop {
+    z-index: 0;
+}
 
 </style>
 
@@ -50,14 +52,14 @@
 
         <!--when authnetication is fixed can add this to it-->
 
-        <!--URL DOESNT WORK-->
-
         <!--<ul class="nav navbar-nav">-->
             <!--<li class>-->
-                <!--<a href="{% slugurl page.documents %}"> Documents </a>-->
+                <!--<a href="{% slugurl 'documents' %}"> Documents </a>-->
             <!--</li>-->
         <!--</ul>-->
 
+
+        {% if request.user.is_authenticated %}
 
         <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -65,10 +67,14 @@
                         <span class="glyphicon glyphicon-user"></span>
                     </a>
                     <ul class="dropdown-menu">
-                         <li><a href="{% url 'logout' %}">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                         <li><a href="{% url 'logout' %}">Log Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+
+                        {% endif %}
+
                     </ul>
                 </li>
             </ul>
+
 
            <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -83,15 +89,13 @@
                             </form>
                             </div>
                         </div>
-
                         </li>
                     </ul>
+                </li>
+           </ul>
 
-
-    </div>
         </div>
-     </div>
-</nav>
-
+      </div>
+    </nav>
 
 {% endblock %}
