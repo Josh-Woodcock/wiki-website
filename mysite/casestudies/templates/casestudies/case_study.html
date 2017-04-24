@@ -15,8 +15,6 @@
     img {  display: block;
     margin: 0 auto; }
 
-
-
 </style></head>
 
 
@@ -27,14 +25,12 @@
 <p class="meta"> {{ page.date }} </p>
 
 
-{% for item in page.gallery_images.all %}
+    {% for item in page.gallery_images.all %}
         <img>
             {% image item.image max-5000x5000 %}
             <p>{{ item.caption }}</p>
         </img>
-
     {% endfor %}
-
 
 
     <article>
@@ -43,6 +39,8 @@
                 {% include_block block %}
             </section>
     {% endfor %}
+    </article>
+
 
 <div class="spacerlg"></div>
 

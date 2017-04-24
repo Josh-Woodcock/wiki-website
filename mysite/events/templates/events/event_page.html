@@ -41,20 +41,24 @@ ul.share-buttons .sr-only {
 
  <div class="media">
   <div class="media-left" style="padding-right: 25px;">
-{% for item in page.gallery_images.all %}
+      {% for item in page.gallery_images.all %}
         <div  style="margin: 10px">
             {% image item.image max-250x250 %}
         </div>
-    {% endfor %}
+      {% endfor %}
   </div>
 
 
   <div class="media-body">
-      <h1 class="media-heading"> {{ page.title }} </h1>
-    <h4> {{ page.organiser }} </h4>
+      <h1 class="media-heading">
+          {{ page.title }} </h1>
+      <h4> {{ page.organiser }} </h4>
       <b> {{ page.date }}, {{ page.start_time }} - {{ page.end_time }} </b>
       <p> {{ page.location}} </p>
 
+
+
+      <!--Add To Calendar-->
 
 <div class="row" style="margin-left: auto">
 
@@ -84,40 +88,40 @@ ul.share-buttons .sr-only {
         </var>
     </span>
 
+    <!--End Add To Calendar-->
 
+    <!--Share Buttons-->
 
     <div class="spacermed"></div>
-
       <ul class="share-buttons">
 
-  <li><a href="mailto:?subject=&body=:%20http%3A%2F%2F127.0.0.1%3A8000%2F" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
-</a></li>
+      <li><a href="mailto:?subject=&body=:%20http%3A%2F%2F127.0.0.1%3A8000%2F" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+            </a></li>
 
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2F&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-  </a></li>
+      <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2F&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+            </a></li>
 
-  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2F127.0.0.1%3A8000%2F&text=:%20http%3A%2F%2F127.0.0.1%3A8000%2F" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
-</a></li>
+      <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2F127.0.0.1%3A8000%2F&text=:%20http%3A%2F%2F127.0.0.1%3A8000%2F" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+            </a></li>
 
-  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2F127.0.0.1%3A8000%2F&title=&summary=&source=http%3A%2F%2F127.0.0.1%3A8000%2F" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-</a></li>
+      <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2F127.0.0.1%3A8000%2F&title=&summary=&source=http%3A%2F%2F127.0.0.1%3A8000%2F" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+            </a></li>
+    </ul>
+    </div>
 
-</ul>
-</div>
+      <!--End Share Buttons-->
 
 
     <article>
-    {% for block in page.body %}
+        {% for block in page.body %}
             <section>
                 {% include_block block %}
             </section>
-     {% endfor %}
-
-</article>
+        {% endfor %}
+    </article>
 
 
 <div class="spacerlg"></div>
-
  <a class="btn btn-primary btn-sm" href="{{ page.get_parent.url }}"> Return to Events </a>
           <div class="spacer"></div>
 
@@ -134,6 +138,5 @@ ul.share-buttons .sr-only {
 {% endif %}
 
       <div class="spacerlg"></div>
-
 
 {% endblock %}

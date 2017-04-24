@@ -10,17 +10,21 @@
 <head><style>
 
 div.spacermed {
-    margin-top: 30px; }
+    margin-top: 30px;
+}
 
-a {color: inherit}
+a {color: inherit
+}
 
 
 .fa { font-size: 100px;
 }
 
-div.col-sm-6 {text-align: center;}
+div.col-sm-6 {text-align: center;
+}
 
-div.card {padding: 5px;}
+div.card {padding: 5px;
+}
 
 </style></head>
 
@@ -29,9 +33,9 @@ div.card {padding: 5px;}
      <div class="row">
     <div class="col-sm-12">
       <div class="jumbotron text-center">
-  <h2> {{page.title}} </h2>
+            <h2> {{page.title}} </h2>
           <div class="spacersml"></div>
-          <p> {{page.intro_index}} </p>
+            <p> {{page.intro_index}} </p>
       </div>
     </div>
 
@@ -54,14 +58,14 @@ div.card {padding: 5px;}
                         <h3> {{post.title}} </h3>
                             <div class="spacermed"></div>
                       </div>
-                  </div>
+                </a>
+             </div>
                           <div class="spacermed"></div>
             </a>
                 </div>
 
-    {% endwith %}
+        {% endwith %}
     {% endfor %}
-
 
        <!--{% for block in page.subject %}-->
         <!--{% include_block block %}-->

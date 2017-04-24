@@ -8,7 +8,7 @@ from modelcluster.fields import ParentalKey
 
 
 from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailcore.fields import StreamField, RichTextField
+from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel

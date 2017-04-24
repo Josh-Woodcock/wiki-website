@@ -10,26 +10,26 @@
 
     div.spacermed {
     margin-top: 30px; }
-                div.spacersml {
+
+    div.spacersml {
     margin-top: 20px; }
 
 
 </style></head>
 
    <div class="container-fluid">
-     <div class="row">
-    <div class="col-sm-12">
+   <div class="row">
+   <div class="col-sm-12">
 
-        <div class="container-fluid">
+    <div class="container-fluid">
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 ">
 
         {% if page.intro %}
-
           <div class="page-header">
-                <h1> {{page.title}} </h1>
+              <h1> {{page.title}} </h1>
           </div>
-                    {{page.intro}}
-        <br>
+            {{page.intro}}
+          <br>
 
           {% else %}
                 <h1> {{page.title}} </h1>
@@ -48,14 +48,17 @@
             {% image item.image fill-560x312 %}
             <p>{{ item.caption }}</p>
         </div>
-    {% endfor %}
+        {% endfor %}
 
+
+        <div class="spacermed"></div>
         {{ post.body}}
         <div class="spacermed"></div>
         <hr>
         <div class="spacermed"></div>
     {% endwith %}
 {% endfor %}
+
     </div>
         <div class="spacermed"></div>
 </div>

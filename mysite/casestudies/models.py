@@ -1,26 +1,15 @@
 from django.db import models
 
-from django import forms
-from django.db import models
-
-from modelcluster.fields import ParentalKey, ParentalManyToManyField
-from modelcluster.tags import ClusterTaggableManager
-from taggit.models import TaggedItemBase
+from modelcluster.fields import ParentalKey
 
 from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailcore.fields import StreamField, RichTextField
+from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
+
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
-
-
 from wagtail.wagtailsearch import index
-
-from wagtail.wagtailsnippets.models import register_snippet
-
-from wagtail.contrib.table_block.blocks import TableBlock
 
 # Create your models here.
 

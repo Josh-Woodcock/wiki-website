@@ -8,10 +8,10 @@
 
 
 <head>
-<style> div.spacermed {
-    margin-top: 30px; }
-    }div.spacer {
-    margin-top: 500px; }
+<style>
+
+    div.spacermed {
+    margin-top: 30px;
     }
 </style></head>
 
@@ -19,35 +19,34 @@
 
 <div class="container">
      <div class="row">
-    <div class="col-sm-12">
-      <div class="jumbotron text-center">
-          {% if page.intro %}
+        <div class="col-sm-12">
+            <div class="jumbotron text-center">
+                {% if page.intro %}
 
-          <div class="page-header">
-                <h2> {{page.title}} </h2>
+                  <div class="page-header">
+                        <h2> {{page.title}} </h2>
+                  </div>
+                            {{page.intro}}
+
+                  {% else %}
+                        <h2> {{page.title}} </h2>
+                  {% endif %}
+
           </div>
-                    {{page.intro}}
-
-          {% else %}
-                <h2> {{page.title}} </h2>
-          {% endif %}
-
-      </div>
+        </div>
     </div>
-</div>
 
     {% for post in page.get_children %}
             {% with post=post.specific %}
 
 <div class="spacermed"></div>
 
-
     <div class="container">
          <div class="media">
           <div class="media-left" style="padding-right: 40px;">
-         {% with post.main_image as main_image %}
-            {% if main_image %}{% image main_image max-1000x500 %}{% endif %}
-        {% endwith %}
+             {% with post.main_image as main_image %}
+                {% if main_image %}{% image main_image max-1000x500 %}{% endif %}
+             {% endwith %}
           </div>
 
 
@@ -63,13 +62,13 @@
                         {% include_block block %}
                     </section>
             {% endfor %}
-        </article>
+            </article>
+
           </div>
 
         <div class="spacermed"></div>
         <hr>
         <div class="spacermed"></div>
-
 
 
           </div></div>

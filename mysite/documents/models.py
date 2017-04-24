@@ -1,7 +1,7 @@
-from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailcore.fields import StreamField, RichTextField
+from wagtail.wagtailcore.models import Page
+from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 
 from wagtail.wagtailsearch import index
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock

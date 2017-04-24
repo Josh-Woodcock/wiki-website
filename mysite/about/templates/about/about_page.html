@@ -31,9 +31,10 @@
         <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100">
 
       {% for block in page.body %}
-          {% if block.block_type == 'section_heading' %}
-          <li><a href="#section{{forloop.counter}}">
-            {{ block.value }}{% endif %} </a></li>
+            {% if block.block_type == 'section_heading' %}
+            <li><a href="#section{{forloop.counter}}">
+                {{ block.value }}
+            {% endif %} </a></li>
       {% endfor %}
 
           </ul>

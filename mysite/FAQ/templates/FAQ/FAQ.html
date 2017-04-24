@@ -8,16 +8,13 @@
 
 <div class="container">
      <div class="row">
-    <div class="col-sm-12">
+      <div class="col-sm-12">
       <div class="jumbotron text-center">
-
           {% if page.intro %}
-
           <div class="page-header">
                 <h2> {{page.title}} </h2>
           </div>
                     {{page.intro}}
-
           {% else %}
                 <h2> {{page.title}} </h2>
           {% endif %}
@@ -25,16 +22,14 @@
           <div class="spacersml"></div>
       </div>
 
-
     <h2>{{ value.heading}}</h2>
 
     {% for block in page.body %}
-                {% include_block block %}
+        {% include_block block %}
     {% endfor %}
 
 </div>
 </div>
 </div>
-
 
       {% endblock %}

@@ -32,7 +32,7 @@
     {% endif %}
 {% endwith %}
 
-{% for item in page.gallery_images.all %}
+    {% for item in page.gallery_images.all %}
         <div style="float: center ; margin: 10px">
             {% image item.image fill-560x312 %}
             <p>{{ item.caption }}</p>
@@ -44,19 +44,18 @@
             <section>
                 {% include_block block %}
                     {% image value.photo width-400 %}
-
             </section>
     {% endfor %}
-</article>
+    </article>
 
 
 {% if page.tags.all.count %}
-<div class="tags">
-    <h5> Tags </h5>
-    {% for tag in page.tags.all %}
-        <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button" class="btn btn-default btn-md">{{ tag }}</button></a>
-    {% endfor %}
-</div>
+    <div class="tags">
+        <h5> Tags </h5>
+        {% for tag in page.tags.all %}
+            <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button" class="btn btn-default btn-md">{{ tag }}</button></a>
+        {% endfor %}
+    </div>
 {% endif %}
 
 
