@@ -17,13 +17,11 @@
 
 </style></head>
 
-
-
-
 <h1>{{ page.title }}</h1>
 
 <p class="meta"> {{ page.date }} </p>
 
+        <div class="spacerlg"></div>
 
     {% for item in page.gallery_images.all %}
         <img>
@@ -32,6 +30,7 @@
         </img>
     {% endfor %}
 
+        <div class="spacerlg"></div>
 
     <article>
     {% for block in page.body %}
