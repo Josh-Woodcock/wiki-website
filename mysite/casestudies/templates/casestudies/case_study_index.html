@@ -6,7 +6,10 @@
 
 {% block content %}
 
-<head><style>
+<head>
+
+
+    <style>
 
         div.spacersml {
             margin-top: 20px; }
@@ -32,14 +35,19 @@
             margin: 0 auto;
         }
 
+</style>
 
-</style></head>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js">
+    </script>
+
+</head>
+
 
    <div class="container">
      <div class="row">
+
     <div class="col-sm-12">
       <div class="jumbotron text-center">
-
           {% if page.intro %}
               <div class="page-header">
                     <h2> {{page.title}} </h2>
@@ -52,17 +60,17 @@
 
       </div>
     </div>
-     </div>
-     </div>
+
 
   <div class="container-fluid">
       <div class="row">
-          <div class="col-sm-6 col-md-4">
-
 
     {% for post in page.get_children %}
           {% with post=post.specific %}
-                <a href="{% pageurl post %}"> <div class="card">
+
+           <div class="col-sm-6 col-md-4 col-lg-3">
+             <div class="card">
+                <a href="{% pageurl post %}">
                   <img> {% with post.main_image as main_image %}
                 {% if main_image %}{% image main_image max-250x250 %}{% endif %}
                       {% endwith %} </img>
@@ -70,13 +78,16 @@
                     <div class="card-title">
                     <h3>{{ post.title }}</h3>
                   </div>
-                </div>
+                </a>
+             </div>
                 </a>
               </div>
-            {% endwith %}
+        {% endwith %}
           {% endfor %}
-                </div>
+             </div>
             </div>
+                </div>
+                     </div>
 
 
       {% endblock %}
